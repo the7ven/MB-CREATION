@@ -24,32 +24,28 @@ body {
 
 }
 
-.coming-soon {
-    text-align: center;
-    position: fixed;
-  
-    color: #020202;
-    font-size: 20px;
+ .btn{
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
     border: 2px solid black;
-    padding: 15px  30px;
+    padding: 15px 25px;
     border-radius: 30px;
     transition: all ease-in-out .5s;
-}
+    margin-right: 30px;
+ }
 
-a{
-    text-decoration: none;
-}
 
-.coming-soon:hover{
+ .btn:hover{
     color: #ffffff;
-    background-color: #020202;
-}
+    background-color: black;
 
+ }
 /* Animation pour l'image centrale */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(100px);
     }
     to {
         opacity: 1;
@@ -57,6 +53,27 @@ a{
     }
 }
 
+
+
+@media (max-width: 768px){
+
+    .main-image {
+        width: 350px;
+        height: auto;
+        text-align: center;
+        align-items: center;  
+        margin-top: 150px;
+    }
+
+
+    .btn{
+        font-size: 15px;
+        margin-left: 25px;
+    }
+
+  
+}
+
 .main-image {
-    animation: fadeIn 5.5s ease-out;
+    animation: fadeIn 3.5s ease-out;
 }
