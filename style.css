@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+
+
+.main-image {
+    width: 900px;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    margin-top: 50px;
+
+}
+
+.coming-soon {
+    text-align: center;
+    position: fixed;
+  
+    color: #020202;
+    font-size: 20px;
+    border: 2px solid black;
+    padding: 15px  30px;
+    border-radius: 30px;
+    transition: all ease-in-out .5s;
+}
+
+a{
+    text-decoration: none;
+}
+
+.coming-soon:hover{
+    color: #ffffff;
+    background-color: #020202;
+}
+
+/* Animation pour l'image centrale */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-image {
+    animation: fadeIn 5.5s ease-out;
+}
