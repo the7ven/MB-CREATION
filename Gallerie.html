@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie d'images responsive</title>
+    <link rel="stylesheet" href="styles.css">
+  
+  <link rel="stylesheet" href="acceuil.css">
+  <style>
+     
+     
+     * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center; /* Centrer les éléments */
+}
+.gallery-item {
+    flex: 1 1 calc(33.333% - 20px); /* 3 colonnes sur écrans larges */
+    margin: 10px;
+    cursor: pointer;
+    max-width: 400px; /* Limiter la taille maximum des items */
+}
+.gallery-item img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Pour les écrans moyens (tablettes) */
+@media (max-width: 768px) {
+    .gallery-item {
+        flex: 1 1 calc(50% - 20px); /* 2 colonnes sur les écrans moyens */
+    }
+}
+
+/* Pour les petits écrans (téléphones) */
+@media (max-width: 480px) {
+    .gallery-item {
+        flex: 1 1 calc(100% - 20px); /* 1 colonne sur petits écrans */
+    }
+}
+
+.modal {
+    padding-top: 200px;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 300px;
+    max-width: 700px;
+    max-height: 80%;
+    animation: zoom 0.6s;
+}
+@keyframes zoom {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+}
+.close {
+    position: absolute;
+    top: 100px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            padding: 10px;
+            border: none;
+        }
+
+        .prev {
+            left: 20px;
+        }
+        .next {
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">
+        Free delivery on order over $200
+    </div>
+
+    <header class="main-header">
+
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+
+
+        <div class="logo"><img src="IMAGES/LOGO.png" alt=""></div>
+        
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                   
+                </li>
+                <li>
+                    <a href="#" class="has-dropdown">Shop</a>
+                    <div class="dropdown mega-menu">
+                        <div class="category">
+                            <h3><ul> <li><a href="#">Men's Fashion</a></li></ul></h3>
+                            <ul>
+                                <li><a href="#">T-Shirts</a></li>
+                                <li><a href="#">Shirts</a></li>
+                                <li><a href="#">Pants</a></li>
+                                <li><a href="#">Jeans</a></li>
+                                <li><a href="#">Shoes</a></li>
+                            </ul>
+                        </div>
+                        <div class="category">
+                            <h3><ul> <li><a href="#">Womens Fashion</a></li></ul></h3>
+                            <ul>
+                                <li><a href="#">clothes</a></li>
+                                <li><a href="#">Wallets</a></li>
+                                <li><a href="#">Bags</a></li>
+                                <li><a href="#">Sunglasses</a></li>
+                               
+                            </ul>
+                        </div>
+                        <div class="category">
+                            <h3><ul> <li><a href="#">Kids</a></li></ul></h3>
+                            <ul>
+                                <li><a href="#">clothes</a></li>
+                                <li><a href="#">Wallets</a></li>
+                                <li><a href="#">Bags</a></li>
+                                <li><a href="#">Sunglasses</a></li>
+                                
+                            </ul>
+                        </div>
+                       
+                        <div class="category">
+                            <h3>Trending</h3>
+                            <ul>
+                                <li><a href="#">New Arrivals</a></li>
+                                <li><a href="#">Best Sellers</a></li>
+                                <li><a href="#">Sale Items</a></li>
+                                <li><a href="#">Special Offers</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="has-dropdown">Collection</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Summer Collection</a></li>
+                        <li><a href="#">Winter Collection</a></li>
+                        <li><a href="#">Special Edition</a></li>
+                        <li><a href="#">Premium Collection</a></li>
+                        <li><a href="#">Holiday Edition</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="has-dropdown">Pages</a>
+                    <ul class="dropdown">
+                       
+                        <li><a href="#">About-Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">MB Fondation</a>
+                   
+                </li>
+                <li><a href="#">Shooting</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+    </header>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="IMAGES/product-test.png" alt="Image 1">
+        </div>
+        <div class="gallery-item">
+            <img src="IMAGES/hero3.png" alt="Image 2">
+        </div>
+        <div class="gallery-item">
+            <img src="IMAGES/product-test.png" alt="Image 3">
+        </div>
+        <div class="gallery-item">
+            <img src="IMAGES/hero2.png" alt="Image 4">
+        </div>
+        <div class="gallery-item">
+            <img src="IMAGES/product-test.png" alt="Image 5">
+        </div>
+        <div class="gallery-item">
+            <img src="IMAGES/hero-image1.png" alt="Image 6">
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <button class="nav-button prev">&lt;</button>
+        <button class="nav-button next">&gt;</button>
+    </div>
+
+    <script>
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.getElementsByClassName('close')[0];
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        let currentIndex = 0;
+
+        galleryItems.forEach((img, index) => {
+            img.onclick = function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                currentIndex = index;
+            }
+        });
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        prevBtn.onclick = function() {
+            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+            modalImg.src = galleryItems[currentIndex].src;
+        }
+
+        nextBtn.onclick = function() {
+            currentIndex = (currentIndex + 1) % galleryItems.length;
+            modalImg.src = galleryItems[currentIndex].src;
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (modal.style.display === "block") {
+                if (e.key === "ArrowLeft") {
+                    prevBtn.click();
+                } else if (e.key === "ArrowRight") {
+                    nextBtn.click();
+                } else if (e.key === "Escape") {
+                    closeBtn.click();
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
