@@ -24,7 +24,8 @@
 }
 
 .logo img{
-   width: 40px;
+   width: 50px;
+   border-radius: 50%;
 }
 
    
@@ -173,20 +174,20 @@ nav li:hover .dropdown {
 }
 
 .slide img{
-    width: 450px;
+    width: 400px;
 }
 
 /* Styles des slides */
 .slide:nth-child(1) {
-    background-color: #f8f8f8;
+    background-color: white;
 }
 
 .slide:nth-child(2) {
-    background-color: #f0f0f0;
+    background-color: white;
 }
 
 .slide:nth-child(3) {
-    background-color: #e8e8e8;
+    background-color: white;
 }
 
 .hero-content {
@@ -230,7 +231,7 @@ nav li:hover .dropdown {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgb(148, 147, 147);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -283,7 +284,7 @@ nav li:hover .dropdown {
     transition: all 0.3s ease;
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.5s ease-out 0.7s;
+    transition: all 0.3s ease-out 0.5s;
 }
 
 .slide.active .shop-now-btn {

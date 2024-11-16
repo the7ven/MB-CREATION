@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #ffffff;
+    background-color: #000000;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -26,9 +26,9 @@ body {
 
  .btn{
     text-decoration: none;
-    color: black;
+    color: #e6bf42;
     font-size: 25px;
-    border: 2px solid black;
+    border: 2px solid #e6bf42;
     padding: 15px 25px;
     border-radius: 30px;
     transition: all ease-in-out .5s;
@@ -37,8 +37,8 @@ body {
 
 
  .btn:hover{
-    color: #ffffff;
-    background-color: black;
+    color: black;
+    background-color:#e6bf42;
 
  }
 /* Animation pour l'image centrale */
