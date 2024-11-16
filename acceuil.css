@@ -23,9 +23,8 @@
     z-index: 1000;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
+.logo img{
+   width: 40px;
 }
 
    
@@ -371,6 +370,7 @@ nav li:hover .dropdown {
 footer {
     background-color: #070707;
     padding: 60px 5% 20px;
+   
 }
 
 .footer-content {
@@ -378,6 +378,7 @@ footer {
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     color: #e8e8e8;
+   
 }
 
 .footer-column h3 {
@@ -404,8 +405,8 @@ footer {
 
 .subscribe-btn {
     padding: 10px 20px;
-    background-color: #000;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     border: none;
     cursor: pointer;
 }
