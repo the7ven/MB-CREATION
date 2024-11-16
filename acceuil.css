@@ -145,6 +145,7 @@ nav li:hover .dropdown {
     position: relative;
     height: 600px;
     overflow: hidden;
+    animation: fadeIn 3.5s ease-out;
 }
 
 .slider {
@@ -300,6 +301,7 @@ nav li:hover .dropdown {
     justify-content: space-around;
     padding: 40px 5%;
     background-color: white;
+    animation: fadeIn 3.5s ease-out;
 }
 
 .service-item {
@@ -310,6 +312,18 @@ nav li:hover .dropdown {
 .service-item i {
     font-size: 20px;
     margin-bottom: 15px;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Products Section */
@@ -376,7 +390,7 @@ footer {
 .footer-content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 10px;
     color: #e8e8e8;
    
 }
@@ -399,7 +413,7 @@ footer {
 
 .subscribe-form input {
     padding: 10px;
-    width: 100%;
+    width: 70%;
     margin-bottom: 10px;
 }
 
@@ -458,11 +472,22 @@ footer {
 
     footer {
         font-size: 12px;
+       
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        color: #e8e8e8;
+       
     }
 
     .service-item h3,p{
         font-size: 10px;
     }
+
+ 
 
    
 }
