@@ -170,6 +170,10 @@ nav li:hover .dropdown {
     opacity: 1;
 }
 
+.slide img{
+    width: 450px;
+}
+
 /* Styles des slides */
 .slide:nth-child(1) {
     background-color: #f8f8f8;
