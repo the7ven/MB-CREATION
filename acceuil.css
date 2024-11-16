@@ -235,7 +235,7 @@ nav li:hover .dropdown {
 }
 
 .slider-dot.active {
-    background-color: #ff4e8d;
+    background-color: #ccad24;
     transform: scale(1.2);
 }
 
@@ -259,7 +259,7 @@ nav li:hover .dropdown {
 }
 
 .slider-btn:hover {
-    background-color: #ff4e8d;
+    background-color:  #ccad24;
     color: white;
 }
 
