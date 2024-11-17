@@ -161,13 +161,85 @@
         </div>
     </section>
 
+
+    <section class="Products"  id="cocktails">
+
+        <h1>New Arrival</h1>
+    
+    <div class="arrival">
+    
+    
+       
+        <div class="products" onclick="openModal(this)">
+            <img src="IMAGES/product-test.png" alt="Produit 1" class="product-image">
+            <h3>Produit 1</h3>
+            <p>99,99 €</p>
+            <a href="#" class="buy-btn">BUY</a>
+        </div>
+        <div class="products" onclick="openModal(this)">
+            <img src="IMAGES/product-test.png" alt="Produit 2" class="product-image">
+            <h3>Produit 2</h3>
+            <p>149,99 €</p>
+            <a href="#" class="buy-btn">BUY</a>
+        </div>
+        <div class="products" onclick="openModal(this)">
+            <img src="IMAGES/product-test.png" alt="Produit 1" class="product-image">
+            <h3>Produit 1</h3>
+            <p>99,99 €</p>
+            <a href="#" class="buy-btn">BUY</a>
+        </div>
+        <div class="products" onclick="openModal(this)">
+            <img src="IMAGES/product-test.png" alt="Produit 2" class="product-image">
+            <h3>Produit 2</h3>
+            <p>149,99 €</p>
+            <a href="#" class="buy-btn">BUY</a>
+        </div>
+        <div class="products" onclick="openModal(this)">
+            <img src="IMAGES/product-test.png" alt="Produit 1" class="product-image">
+            <h3>Produit 1</h3>
+            <p>99,99 €</p>
+            <a href="#" class="buy-btn">BUY</a>
+        </div>
+        <div class="products" onclick="openModal(this)">
+            <img src="IMAGES/product-test.png" alt="Produit 2" class="product-image">
+            <h3>Produit 2</h3>
+            <p>149,99 €</p>
+            <a href="#" class="buy-btn">BUY</a>
+        </div>
+       
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal()">&times;</button>
+            <div class="modal-image-container">
+                <img src="" alt="Produit" class="modal-image" id="modalImage">
+            </div>
+            <div class="modal-details">
+                <h2 class="product-title">Nom du Produit</h2>
+                <div class="product-price">99,99 €</div>
+                <p class="product-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <div class="product-specs">
+                    <a href="#" class="buy-btn">BUY</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </section>
+
+
+<!--
     <section class="products">
         <div class="section-title">
             <h2>New Arrival</h2>
             <p>Lorem ipsum dolor sit amet conse ctetur</p>
         </div>
         <div class="product-grid">
-            <!-- Répéter pour chaque produit -->
+           
             <div class="product-card">
                 <span class="tag-new">New</span>
                 <img src="IMAGES/product-test.png" alt="Product">
@@ -241,13 +313,15 @@
 
          
 
-            <!-- Répéter les autres produits de manière similaire -->
+            
         </div>
     </section>
 
+     Répéter les autres produits de manière similaire -->
+
     <section class="best-seller">
         <div class="section-title">
-            <h2>BEST SELLER</h2>
+            <h2 class="best-seller-title">BEST SELLER</h2>
         </div>
         <div class="best-seller-grid">
            
@@ -273,7 +347,7 @@
                 <a href="#" class="buy-btn">BUY</a>
             </div>
            
-            <!-- Répéter pour les autres articles -->
+           <!--  Répéter pour les autres articles -->
         </div>
     </section>
 
