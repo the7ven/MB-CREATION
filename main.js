@@ -1,3 +1,4 @@
+
 class Slider {
     constructor() {
         this.slides = document.querySelectorAll('.slide');
@@ -190,7 +191,7 @@ document.addEventListener('keydown', (e) => {
 
 
 
-
+  // notation par etoile
 
 
 

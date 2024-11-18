@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -550,6 +551,7 @@ nav li:hover .dropdown {
 
 .best-seller-title{
     text-align: center;
+    font-size: 3rem;
 }
 
 .buy-btn{
@@ -578,6 +580,7 @@ nav li:hover .dropdown {
     text-align: center;
     padding-top: 50px;
     padding-bottom: 50px;
+    font-size: 3rem;
 
 }
 
@@ -1040,4 +1043,3 @@ footer {
 .star.selected {
     color: #ffd700;
 }
-
