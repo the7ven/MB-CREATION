@@ -194,62 +194,38 @@ document.addEventListener('keydown', (e) => {
 
 
 
-class RatingSystem {
-    constructor() {
-        this.ratings = JSON.parse(localStorage.getItem('ratings')) || [];
-        this.updateStats();
-        this.initializeEventListeners();
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    const ratingContainers = document.querySelectorAll('.rating');
 
-    addRating(value) {
-        this.ratings.push(parseFloat(value));
-        localStorage.setItem('ratings', JSON.stringify(this.ratings));
-        this.updateStats();
-    }
+    ratingContainers.forEach(container => {
+        const stars = container.querySelectorAll('.star');
+        const currentRatingDisplay = container.parentElement.querySelector('#current-rating');
 
-    calculateAverage() {
-        if (this.ratings.length === 0) return 0;
-        const sum = this.ratings.reduce((a, b) => a + b, 0);
-        return (sum / this.ratings.length).toFixed(1);
-    }
-
-    updateStats() {
-        const average = this.calculateAverage();
-        document.querySelector('.rating-average').textContent = average;
-        document.getElementById('total-ratings').textContent = this.ratings.length;
-    }
-
-    initializeEventListeners() {
-        const ratingContainer = document.querySelector('.rating');
-        
-        ratingContainer.addEventListener('change', (e) => {
-            if (e.target.type === 'radio') {
-                const ratingValue = e.target.value;
-                const label = document.querySelector(`label[for="${e.target.id}"]`);
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const value = parseInt(this.getAttribute('data-value'));
                 
-                // Animation
-                label.classList.add('pulse');
-                setTimeout(() => label.classList.remove('pulse'), 300);
-
-                // Mise à jour de l'affichage
-                document.getElementById('rating-display').textContent = ratingValue;
+                // Réinitialiser toutes les étoiles
+                stars.forEach(s => s.classList.remove('selected'));
                 
-                // Sauvegarde de la note
-                this.addRating(ratingValue);
-            }
+                // Sélectionner les étoiles jusqu'à la valeur cliquée
+                stars.forEach(s => {
+                    if (parseInt(s.getAttribute('data-value')) <= value) {
+                        s.classList.add('selected');
+                    }
+                });
+
+                // Mettre à jour l'affichage de la note
+                if (currentRatingDisplay) {
+                    currentRatingDisplay.textContent = value;
+                }
+
+                // Marquer le conteneur comme cliqué
+                container.setAttribute('data-clicked', 'true');
+
+                // Log pour debug et futur envoi au serveur
+                console.log('Note donnée:', value);
+            });
         });
-
-        // Restauration de la dernière note si elle existe
-        const lastRating = this.ratings[this.ratings.length - 1];
-        if (lastRating) {
-            const input = document.querySelector(`input[value="${lastRating}"]`);
-            if (input) {
-                input.checked = true;
-                document.getElementById('rating-display').textContent = lastRating;
-            }
-        }
-    }
-}
-
-// Initialisation du système de notation
-const ratingSystem = new RatingSystem();
+    });
+});
