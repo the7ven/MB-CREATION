@@ -978,3 +978,24 @@ footer {
         padding: 6px 0;
     }
 }
+
+
+
+
+::-webkit-scrollbar {
+    width: 10px;  /* Largeur de la scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;  /* Couleur de fond */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;  /* Couleur de la barre */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ccad24;  /* Couleur au survol */
+}

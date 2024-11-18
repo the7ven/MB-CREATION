@@ -299,7 +299,11 @@
 </footer>
 
   <script>
-    const fullText = `Notre entreprise s'engage à fournir des produits de qualité supérieure pour votre bien-être quotidien. Nous travaillons sans relâche pour améliorer et innover nos formules. Notre équipe passionnée recherche constamment de nouvelles solutions pour répondre à vos besoins. Nous croyons en la transparence et en l'utilisation d'ingrédients naturels de première qualité. Notre mission est de vous accompagner dans votre parcours vers une vie plus saine et équilibrée.`;
+    const fullText = `Notre entreprise s'engage à fournir des produits de qualité supérieure pour votre bien-être quotidien. 
+    Nous travaillons sans relâche pour améliorer et innover nos formules. Notre équipe passionnée recherche constamment
+     de nouvelles solutions pour répondre à vos besoins. Nous croyons en la transparence 
+     et en l'utilisation d'ingrédients naturels de première qualité. Notre mission est de vous accompagner
+      dans votre parcours vers une vie plus saine et équilibrée.`;
     
     const shortText = `Notre entreprise s'engage à fournir des produits de qualité supérieure pour votre bien-être quotidien...`;
     
@@ -313,11 +317,11 @@
       
       if (isExpanded) {
         aboutText.textContent = fullText;
-        expandBtn.textContent = 'Voir moins';
+        expandBtn.textContent = 'see less';
         chevron.classList.add('rotate');
       } else {
         aboutText.textContent = shortText;
-        expandBtn.textContent = 'Explorer plus';
+        expandBtn.textContent = 'Clique To know More';
         chevron.classList.remove('rotate');
       }
       
