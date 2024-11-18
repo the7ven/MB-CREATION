@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MB-CREATION</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="acceuil.css">
+</head>    
+<html>
+<head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+ 
+
+  .about-container {
+    max-width:100%;
+    margin: 0 auto;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .product-image {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  }
+
+  .stats-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .stats-number {
+    font-size: 24px;
+    font-weight: 600;
+    color: #c7c436;
+  }
+
+  .stats-text {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .image-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+   
+  }
+
+  .product-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  .ratings {
+    font-size: 20px;
+  }
+
+  .about-section h2 {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+
+  .about-section h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .about-text {
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .expand-btn {
+    background: #ead833;
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: background 0.3s ease;
+  }
+
+  .expand-btn:hover {
+    background: #000000;
+    color: #ffffff;
+  }
+
+  .chevron {
+    transition: transform 0.3s ease;
+  }
+
+  .chevron.rotate {
+    transform: rotate(180deg);
+  }
+
+
+  
+
+</style>
+</head>
+<body>
+
+    <div class="top-banner">
+        Free delivery on order over $200
+    </div>
+
+    <header class="main-header">
+
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+
+
+        <div class="logo">
+          <a href="index.html"><img src="IMAGES/black1.JPEG" alt="logo"></a>
+        </div>
+        
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                   
+                </li>
+                <li>
+                    <a href="#" class="has-dropdown">Shop</a>
+                    <div class="dropdown mega-menu">
+                        <div class="category">
+                            <h3><ul> <li><a href="#">Men's Collections</a></li></ul></h3>
+                            <ul>
+                                <li><a href="#">collection-1</a></li>
+                                <li><a href="#">collection-2</a></li>
+                                <li><a href="#">collection-3</a></li>
+                            </ul>
+                        </div>
+                        <div class="category">
+                            <h3><ul> <li><a href="#">Womens collections</a></li></ul></h3>
+                            <ul>
+                                <li><a href="#">collection-1</a></li>
+                                <li><a href="#">collection-2</a></li>
+                                <li><a href="#">collection-3</a></li>
+                               
+                            </ul>
+                        </div>
+                        <div class="category">
+                            <h3><ul> <li><a href="#">Kids Collections</a></li></ul></h3>
+                            <ul>
+                                <li><a href="#">collection-1</a></li>
+                                <li><a href="#">collection-2</a></li>
+                                <li><a href="#">collection-3</a></li>
+                                
+                            </ul>
+                        </div>
+                       
+                        <div class="category">
+                            <h3>Trending</h3>
+                            <ul>
+                                <li><a href="#">New Arrivals</a></li>
+                                <li><a href="#">Best Sellers</a></li>
+                                <li><a href="#">Special Offers</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                
+                <li>
+                    <a href="#" class="has-dropdown">Pages</a>
+                    <ul class="dropdown">
+                       
+                        <li><a href="#">About-Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">MB Fondation</a>
+                   
+                </li>
+                <li><a href="Gallerie.html">Shooting</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+  <div class="about-container">
+    <div class="grid">
+      <!-- Left Column -->
+      <div class="left-column">
+        <div class="stats-card">
+          <div class="stats-number">2,000+</div>
+          <div class="stats-text">Clients satisfaits</div>
+        </div>
+        <div class="image-card">
+          <img src="IMAGES/hero-image1.png" alt="Product" class="product-image">
+          <div class="ratings">⭐⭐⭐⭐⭐</div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="about-section">
+        <h2>À propos de nous</h2>
+        <h1>Notre Histoire</h1>
+        <div class="about-text" id="aboutText">
+          Notre entreprise s'engage à fournir des produits de qualité supérieure pour votre bien-être quotidien...
+        </div>
+        <button class="expand-btn" id="expandBtn">
+          Clique to know more
+          <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="footer-content">
+        <div class="footer-column">
+            <h4>MB-CREATION®</h4>
+            <p>© 2024 MB-CREATION®<br>All Rights Reserved</p>
+        </div>
+        <div class="footer-column">
+            <h3>ABOUT US</h3>
+            <ul>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Store location</a></li>
+                <li><a href="#">Contact</a></li>
+                
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>USEFUL LINKS</h3>
+            <ul>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">Size guide</a></li>
+                <li><a href="#">FAQs</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>SUBSCRIBE</h3>
+            <p>Get E-mail updates about our latest shop and special offers.</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Enter your email here.">
+                <button type="submit" class="subscribe-btn">SUBSCRIBE</button>
+            </form>
+        </div>
+    </div>
+</footer>
+
+  <script>
+    const fullText = `Notre entreprise s'engage à fournir des produits de qualité supérieure pour votre bien-être quotidien. Nous travaillons sans relâche pour améliorer et innover nos formules. Notre équipe passionnée recherche constamment de nouvelles solutions pour répondre à vos besoins. Nous croyons en la transparence et en l'utilisation d'ingrédients naturels de première qualité. Notre mission est de vous accompagner dans votre parcours vers une vie plus saine et équilibrée.`;
+    
+    const shortText = `Notre entreprise s'engage à fournir des produits de qualité supérieure pour votre bien-être quotidien...`;
+    
+    const aboutText = document.getElementById('aboutText');
+    const expandBtn = document.getElementById('expandBtn');
+    const chevron = document.querySelector('.chevron');
+    let isExpanded = false;
+
+    expandBtn.addEventListener('click', () => {
+      isExpanded = !isExpanded;
+      
+      if (isExpanded) {
+        aboutText.textContent = fullText;
+        expandBtn.textContent = 'Voir moins';
+        chevron.classList.add('rotate');
+      } else {
+        aboutText.textContent = shortText;
+        expandBtn.textContent = 'Explorer plus';
+        chevron.classList.remove('rotate');
+      }
+      
+      // Réinsérer l'icône après avoir changé le texte du bouton
+      expandBtn.appendChild(chevron);
+    });
+  </script>
+  <script src="main.js"></script>
+</body>
+</html>
