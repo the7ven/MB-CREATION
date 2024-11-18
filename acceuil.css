@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: "Raleway", sans-serif;
 }
 
 
@@ -641,7 +641,6 @@ nav li:hover .dropdown {
 .carrousel-title {
     font-size: 7rem;
     margin-bottom: 1rem;
-    font-family: "Prociono", serif;
     opacity: 0;
     transform: translateX(-20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
