@@ -765,6 +765,17 @@ footer {
     cursor: pointer;
 }
 
+
+.socials a{
+    text-decoration: none;
+    color: #888;
+    transition: all ease .3s;
+}
+
+.socials a:hover{
+    color: #ccad24;
+}
+
 /* Utilities */
 .tag-new {
     background-color: #ff4e8d;
