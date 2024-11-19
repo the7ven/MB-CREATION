@@ -722,7 +722,7 @@ footer {
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     color: #e8e8e8;
    
@@ -751,7 +751,12 @@ footer {
 
 .footer-column ul li a{
     text-decoration: none;
-    color: #af8f25;
+    color: #888;
+}
+
+.footer-column ul li a:hover{
+    
+    color: #ccad24;
 }
 
 .subscribe-form input {

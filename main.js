@@ -147,86 +147,114 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+    // Données des produits
+    const products = {
+        1: {
+            title: "Smartphone XYZ",
+            price: "599 €",
+            rating: 4.5,
+            description: "Un smartphone haut de gamme avec un appareil photo exceptionnel, une batterie longue durée et un écran AMOLED 6.5 pouces."
+        },
+        2: {
+            title: "Casque Audio Pro",
+            price: "199 €",
+            rating: 5,
+            description: "Casque audio professionnel avec réduction de bruit active, son haute fidélité et autonomie de 30 heures."
+        },
+        3: {
+            title: "Montre Connectée",
+            price: "299 €",
+            rating: 4,
+            description: "Montre connectée avec suivi d'activité, GPS intégré et moniteur cardiaque. Étanche jusqu'à 50m."
+        },
+        4: {
+            title: "Tablette Pro",
+            price: "449 €",
+            rating: 4.5,
+            description: "Tablette performante avec écran 11 pouces, processeur rapide et stylet inclus. Parfaite pour les créatifs."
+        },
+        5: {
+            title: "Enceinte Bluetooth",
+            price: "129 €",
+            rating: 3.5,
+            description: "Enceinte portable waterproof avec un son puissant et une autonomie de 20 heures."
+        },
+        6: {
+            title: "Clavier Gaming",
+            price: "89 €",
+            rating: 4,
+            description: "Clavier mécanique RGB avec switches personnalisables et repose-poignets ergonomique."
+        }
+    };
 
-const modal = document.getElementById('productModal');
-const modalImage = document.getElementById('modalImage');
-
-function openModal(productElement) {
-    const productImage = productElement.querySelector('.product-image');
-    const productTitle = productElement.querySelector('h3');
-    const productPrice = productElement.querySelector('p');
-
-    // Mettre à jour le contenu de la modale
-    modalImage.src = productImage.src;
-    document.querySelector('.modal-details .product-title').textContent = productTitle.textContent;
-    document.querySelector('.modal-details .product-price').textContent = productPrice.textContent;
-
-    modal.classList.add('active');
-    // Empêcher le défilement du body
-    document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-    modal.classList.remove('active');
-    // Réactiver le défilement du body
-    document.body.style.overflow = 'auto';
-}
-
-// Fermer la modale en cliquant en dehors
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        closeModal();
+    // Initialisation des étoiles
+    function initRatings() {
+        document.querySelectorAll('.rating').forEach(ratingContainer => {
+            const rating = parseFloat(ratingContainer.dataset.rating);
+            updateStars(ratingContainer, rating);
+        });
     }
-});
 
-// Fermer la modale avec la touche Echap
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeModal();
-    }
-});
-
-
-
-
-
-
-  // notation par etoile
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const ratingContainers = document.querySelectorAll('.rating');
-
-    ratingContainers.forEach(container => {
-        const stars = container.querySelectorAll('.star');
-        const currentRatingDisplay = container.parentElement.querySelector('#current-rating');
-
+    // Mise à jour de l'affichage des étoiles
+    function updateStars(container, rating) {
+        const stars = container.querySelectorAll('span');
+        const displayContainer = container.parentElement.querySelector('.rating-display');
+        
         stars.forEach(star => {
-            star.addEventListener('click', function() {
-                const value = parseInt(this.getAttribute('data-value'));
-                
-                // Réinitialiser toutes les étoiles
-                stars.forEach(s => s.classList.remove('selected'));
-                
-                // Sélectionner les étoiles jusqu'à la valeur cliquée
-                stars.forEach(s => {
-                    if (parseInt(s.getAttribute('data-value')) <= value) {
-                        s.classList.add('selected');
-                    }
-                });
+            const value = parseFloat(star.dataset.value);
+            if (value <= rating) {
+                star.classList.add('active');
+            } else {
+                star.classList.remove('active');
+            }
+        });
 
-                // Mettre à jour l'affichage de la note
-                if (currentRatingDisplay) {
-                    currentRatingDisplay.textContent = value;
-                }
+        // Mise à jour de l'affichage du rating
+        displayContainer.textContent = `${rating}/5`;
+    }
 
-                // Marquer le conteneur comme cliqué
-                container.setAttribute('data-clicked', 'true');
-
-                // Log pour debug et futur envoi au serveur
-                console.log('Note donnée:', value);
-            });
+    // Gestion des clics sur les étoiles
+    document.querySelectorAll('.rating span').forEach(star => {
+        star.addEventListener('click', (e) => {
+            const ratingContainer = e.target.parentElement;
+            const value = parseFloat(e.target.dataset.value);
+            ratingContainer.dataset.rating = value;
+            updateStars(ratingContainer, value);
         });
     });
-});
+
+    // Gestion du modal
+    const modal = document.getElementById('productModal');
+    const closeBtn = document.querySelector('.close-modal');
+    const productImages = document.querySelectorAll('.product-image');
+
+    // Ouvrir le modal
+    productImages.forEach(img => {
+        img.addEventListener('click', () => {
+            const productId = img.dataset.id;
+            const product = products[productId];
+            
+            modal.querySelector('.modal-image').src = img.src;
+            modal.querySelector('.product-title').textContent = product.title;
+            modal.querySelector('.product-price').textContent = product.price;
+            modal.querySelector('.rating').dataset.rating = product.rating;
+            updateStars(modal.querySelector('.rating'), product.rating);
+            modal.querySelector('.modal-details').textContent = product.description;
+            
+            modal.style.display = 'block';
+        });
+    });
+
+    // Fermer le modal
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Initialiser les notations au chargement
+    initRatings();

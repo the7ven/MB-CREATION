@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fashion E-commerce</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+  
+
+    .top-banner {
+    background-color: #f5f5f5;
+    padding: 8px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.main-header {
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background: white;
+    z-index: 1000;
+}
+
+.logo img{
+   width: 50px;
+   border-radius: 50%;
+}
+
+   
+
+/* Navigation styles mis à jour */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    
+}
+
+nav li {
+    position: relative;
+   
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+    transition: all ease-in-out .3s;
+   
+   
+}
+
+nav a:hover{
+    background-color: #000;
+    color: #ccad24;
+    padding: 8px 15px;
+    border-radius: 30px;
+}
+
+/* Style des menus déroulants */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    padding: 10px 0;
+}
+
+.dropdown.mega-menu {
+    width: 800px;
+    left: -200px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 20px;
+    gap: 5px;
+}
+
+nav li:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown li {
+    padding: 0;
+}
+
+.dropdown a {
+    padding: 8px 20px;
+    display: block;
+    color: #080808;
+    transition: color 0.3s;
+}
+
+.dropdown a:hover {
+    color: #e9c72f;
+    background-color: #f8f8f8;
+}
+
+/* Style pour les sous-catégories du mega menu */
+.mega-menu .category {
+    margin-bottom: 15px;
+}
+
+.mega-menu h3 ul li a{
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.mega-menu ul {
+    display: block;
+}
+
+.mega-menu li {
+    margin: 5px 0;
+}
+
+.mega-menu a {
+    font-size: 14px;
+}
+
+/* Icône pour indiquer les menus déroulants */
+.has-dropdown::after {
+    content: '▼';
+    font-size: 8px;
+    margin-left: 5px;
+}
+
+/* Reste des styles précédents... */
+.header-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.header-icons i {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+
+
+
+
+        .hero{
+           
+            position: relative;
+            overflow: hidden;
+            height: 600px;
+        }
+
+        .slider {
+            position: relative;
+            height: 100%;
+            
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            padding: 4rem 2rem;
+            background-color: #f5f5f5;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* Navigation Buttons */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 10;
+        }
+
+        .slider-nav button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .slider-nav button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Slide Indicators */
+        .slider-indicators {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .indicator.active {
+            background-color: white;
+        }
+
+        /* Contenu du Slide */
+        .slide-content {
+            flex: 1;
+            padding: 10rem;
+            z-index: 5;
+        }
+
+        .slide-image {
+            flex: 1;
+            z-index: 5;
+        }
+
+        .slide-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Animation pour le texte */
+        .slide.active .slide-content h1 {
+            animation: slideInLeft 0.5s ease-out;
+        }
+
+        .slide.active .slide-content p {
+            animation: slideInLeft 0.5s ease-out 0.2s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+
+   
+
+    /* Categories Grid */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .category-card {
+      position: relative;
+      background-color: #f5f5f5;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    /* Shop Section */
+    .shop-info {
+      display: flex;
+      padding: 4rem 2rem;
+      gap: 2rem;
+      background-color: #fff;
+    }
+
+    .shop-image {
+      flex: 1;
+    }
+
+    .shop-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .shop-content {
+      flex: 1;
+    }
+
+    /* Products */
+    .products {
+      padding: 2rem;
+    }
+
+    .product-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .product-info {
+      padding: 1rem;
+    }
+
+    /* Blog Section */
+    .blog {
+      padding: 2rem;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .blog-card {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 1rem;
+    }
+
+    /* Footer */
+   /* Footer */
+footer {
+    background-color: #070707;
+    padding: 60px 5% 20px;
+   
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    color: #e8e8e8;
+   
+}
+
+.footer-column h4{
+    color: #ccad24;
+}
+
+.footer-column h3 {
+    margin-bottom: 20px;
+}
+
+.footer-column p{
+    margin-bottom: 10px;
+    
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a{
+    text-decoration: none;
+    color: #888;
+}
+
+.footer-column ul li a:hover{
+    
+    color: #ccad24;
+}
+
+.subscribe-form input {
+    padding: 10px;
+    width: 70%;
+    margin-bottom: 10px;
+}
+
+.subscribe-btn {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+}
+
+
+.socials a{
+    text-decoration: none;
+    color: #888;
+    transition: all ease .3s;
+}
+
+.socials a:hover{
+    color: #ccad24;
+}
+
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="top-banner">
+    Free delivery on order over $200
+</div>
+
+<header class="main-header">
+
+    <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+    </button>
+
+
+    <div class="logo">
+      <a href="index.html"><img src="IMAGES/black1.JPEG" alt="logo"></a>
+    </div>
+    
+
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+               
+            </li>
+            <li>
+                <a href="#" class="has-dropdown">Shop</a>
+                <div class="dropdown mega-menu">
+                    <div class="category">
+                        <h3><ul> <li><a href="Men's.html">Men's Collections</a></li></ul></h3>
+                        <ul>
+                            <li><a href="#">icône</a></li>
+                            <li><a href="#">icône 2.0</a></li>
+                            <li><a href="#"> ⁠made of Africa </a></li>
+                        </ul>
+                    </div>
+                    <div class="category">
+                        <h3><ul> <li><a href="#">Womens collections</a></li></ul></h3>
+                        <ul>
+                            <li><a href="#">icône</a></li>
+                            <li><a href="#">icône 2.0</a></li>
+                            <li><a href="#"> ⁠made of Africa </a></li>
+                           
+                        </ul>
+                    </div>
+                    <div class="category">
+                        <h3><ul> <li><a href="#">Kids Collections</a></li></ul></h3>
+                        <ul>
+                            <li><a href="#">made of Africa</a></li>
+                           
+                            
+                        </ul>
+                    </div>
+                   
+                    <div class="category">
+                        <h3>Trending</h3>
+                        <ul>
+                            <li><a href="#">New Arrivals</a></li>
+                            <li><a href="#">Best Sellers</a></li>
+                            <li><a href="#">Special Offers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            
+            <li>
+                <a href="#" class="has-dropdown">Pages</a>
+                <ul class="dropdown">
+                   
+                    <li><a href="about.html">About-Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">MB Fondation</a>
+               
+            </li>
+            <li><a href="Gallerie.html">Shooting</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="header-icons">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-shopping-cart"></i>
+    </div>
+</header>
+
+   <!-- Hero Section avec Slider -->
+   <section class="hero">
+    <div class="slider">
+        <!-- Slide 1 -->
+        <div class="slide active">
+            <div class="slide-content">
+                <h1>THE BEST FASHION<br>THEME WP</h1>
+                <p>Lorem ipsum is simply dummy text of the printing and type-setting industry.</p>
+                <a href="#" class="btn">Read more</a>
+            </div>
+            <div class="slide-image">
+                <img src="IMAGES/sellers1__3_-removebg-preview.png" alt="Fashion model 1">
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>SUMMER<br>COLLECTION</h1>
+                <p>Discover our latest summer collection with amazing discounts.</p>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
+            <div class="slide-image">
+                <img src="/api/placeholder/600/400" alt="Fashion model 2">
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>NEW ARRIVALS<br>2024</h1>
+                <p>Check out our newest styles and limited editions.</p>
+                <a href="#" class="btn">Discover</a>
+            </div>
+            <div class="slide-image">
+                <img src="/api/placeholder/600/400" alt="Fashion model 3">
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="slider-nav">
+            <button class="prev-slide">&lt;</button>
+            <button class="next-slide">&gt;</button>
+        </div>
+
+        <!-- Slide Indicators -->
+        <div class="slider-indicators">
+            <span class="indicator active"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+        </div>
+    </div>
+</section>
+
+
+  <!-- Categories -->
+  <section class="categories">
+    <div class="category-card">
+      <h2>MAN FASHION</h2>
+      <p>Lorem ipsum is simply dummy text of the printing.</p>
+      <a href="#" class="btn">Read more</a>
+    </div>
+    <div class="category-card">
+      <h2>BEST SELLING HANDBAGS</h2>
+      <img src="/api/placeholder/200/200" alt="Handbag">
+    </div>
+    <div class="category-card">
+      <h2>Elegant design</h2>
+      <img src="/api/placeholder/200/200" alt="Shoes">
+    </div>
+  </section>
+
+  <!-- Shop Info -->
+  <section class="shop-info">
+    <div class="shop-image">
+      <img src="/api/placeholder/600/400" alt="Shop interior">
+    </div>
+    <div class="shop-content">
+      <h2>Welcome to name shop</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <img src="/api/placeholder/200/100" alt="Signature">
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="products">
+    <div class="product-tabs">
+      <button class="btn">NEW ARRIVALS</button>
+      <button class="btn">LATEST TRENDS</button>
+      <button class="btn">MEN'S COLLECTION</button>
+      <button class="btn">WOMEN'S COLLECTION</button>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="/api/placeholder/300/400" alt="Product">
+        <div class="product-info">
+          <h3>Fashion name</h3>
+          <p>Price: $29</p>
+          <button class="btn">Add to cart</button>
+        </div>
+      </div>
+      <!-- Repeat product cards -->
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section class="blog">
+    <h2>LATEST BLOG</h2>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <img src="/api/placeholder/400/300" alt="Blog post">
+        <div class="blog-content">
+          <h3>Demand reflects sunlight</h3>
+          <p>Lorem ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+      </div>
+      <!-- Repeat blog cards -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+        <div class="footer-column">
+            <h4>MB-CREATION®</h4>
+            <p>© 2024 MB-CREATION®<br>All Rights Reserved</p>
+        </div>
+        <div class="footer-column">
+            <h3>ABOUT US</h3>
+            <ul>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="#">Store location</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>USEFUL LINKS</h3>
+            <ul>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">Size guide</a></li>
+                <li><a href="#">FAQs</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>FOLLOW US</h3>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Twitter</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>SUBSCRIBE</h3>
+            <p>Get E-mail updates about our latest shop and special offers.</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Enter your email here.">
+                <button type="submit" class="subscribe-btn">SUBSCRIBE</button>
+            </form>
+        </div>
+    </div>
+</footer>
+
+  <script>
+    // Simple slider functionality
+    $(document).ready(function() {
+            // Variables pour le slider
+            let currentSlide = 0;
+            const slides = $('.slide');
+            const indicators = $('.indicator');
+            const totalSlides = slides.length;
+            let slideInterval;
+
+            // Fonction pour changer de slide
+            function goToSlide(index) {
+                // Retire la classe active de tous les slides et indicateurs
+                slides.removeClass('active');
+                indicators.removeClass('active');
+                
+                // Ajoute la classe active au slide et à l'indicateur courant
+                slides.eq(index).addClass('active');
+                indicators.eq(index).addClass('active');
+                
+                currentSlide = index;
+            }
+
+            // Fonction pour le slide suivant
+            function nextSlide() {
+                goToSlide((currentSlide + 1) % totalSlides);
+            }
+
+            // Fonction pour le slide précédent
+            function prevSlide() {
+                goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+            }
+
+            // Événements pour les boutons de navigation
+            $('.next-slide').click(function() {
+                nextSlide();
+                resetInterval();
+            });
+
+            $('.prev-slide').click(function() {
+                prevSlide();
+                resetInterval();
+            });
+
+            // Événements pour les indicateurs
+            $('.indicator').click(function() {
+                const index = $(this).index();
+                goToSlide(index);
+                resetInterval();
+            });
+
+            // Défilement automatique
+            function startInterval() {
+                slideInterval = setInterval(nextSlide, 5000); // Change de slide toutes les 5 secondes
+            }
+
+            function resetInterval() {
+                clearInterval(slideInterval);
+                startInterval();
+            }
+
+            // Démarre le défilement automatique
+            startInterval();
+
+            // Pause le slider au survol
+            $('.hero').hover(
+                function() { clearInterval(slideInterval); },
+                function() { startInterval(); }
+            );
+
+
+            $('.slider-nav button').hover(
+                function() {
+                    $(this).css('transform', 'translateY(-50%) scale(1.1)');
+                },
+                function() {
+                    $(this).css('transform', 'translateY(-50%) scale(1)');
+                }
+            );
+        });
+  </script>
+</body>
+</html>
