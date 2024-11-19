@@ -25,10 +25,9 @@
     max-width:100%;
     margin: 0 auto;
     padding: 40px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+   
   }
+   
 
   .grid {
     display: grid;
@@ -135,98 +134,146 @@
   }
 
 
-  
+  .video-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Personnalisation des contrôles de la vidéo */
+        video::-webkit-media-controls {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        video::-webkit-media-controls-panel {
+            padding: 10px;
+        }
+
+        /* Style pour la description */
+        .video-description {
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .video-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .video-text {
+            color: #666;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+
+
+        .title-store{
+          text-align: center;
+          font-size: 3rem;
+        }
 
 </style>
 </head>
 <body>
 
-    <div class="top-banner">
-        Free delivery on order over $200
+  <div class="top-banner">
+    Free delivery on order over $200
+</div>
+
+<header class="main-header">
+
+    <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+    </button>
+
+
+    <div class="logo">
+      <a href="index.html"><img src="IMAGES/black1.JPEG" alt="logo"></a>
     </div>
+    
 
-    <header class="main-header">
-
-        <button class="mobile-menu-btn">
-            <i class="fas fa-bars"></i>
-        </button>
-
-
-        <div class="logo">
-          <a href="index.html"><img src="IMAGES/black1.JPEG" alt="logo"></a>
-        </div>
-        
-
-        <nav>
-            <ul>
-                <li>
-                    <a href="Acceuil.html">Home</a>
-                   
-                </li>
-                <li>
-                    <a href="#" class="has-dropdown">Shop</a>
-                    <div class="dropdown mega-menu">
-                        <div class="category">
-                            <h3><ul> <li><a href="#">Men's Collections</a></li></ul></h3>
-                            <ul>
-                                <li><a href="#">collection-1</a></li>
-                                <li><a href="#">collection-2</a></li>
-                                <li><a href="#">collection-3</a></li>
-                            </ul>
-                        </div>
-                        <div class="category">
-                            <h3><ul> <li><a href="#">Womens collections</a></li></ul></h3>
-                            <ul>
-                                <li><a href="#">collection-1</a></li>
-                                <li><a href="#">collection-2</a></li>
-                                <li><a href="#">collection-3</a></li>
-                               
-                            </ul>
-                        </div>
-                        <div class="category">
-                            <h3><ul> <li><a href="#">Kids Collections</a></li></ul></h3>
-                            <ul>
-                                <li><a href="#">collection-1</a></li>
-                                <li><a href="#">collection-2</a></li>
-                                <li><a href="#">collection-3</a></li>
-                                
-                            </ul>
-                        </div>
-                       
-                        <div class="category">
-                            <h3>Trending</h3>
-                            <ul>
-                                <li><a href="#">New Arrivals</a></li>
-                                <li><a href="#">Best Sellers</a></li>
-                                <li><a href="#">Special Offers</a></li>
-                            </ul>
-                        </div>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+               
+            </li>
+            <li>
+                <a href="#" class="has-dropdown">Shop</a>
+                <div class="dropdown mega-menu">
+                    <div class="category">
+                        <h3><ul> <li><a href="Men's.html">Men's Collections</a></li></ul></h3>
+                        <ul>
+                            <li><a href="#">icône</a></li>
+                            <li><a href="#">icône 2.0</a></li>
+                            <li><a href="#"> ⁠made of Africa </a></li>
+                        </ul>
                     </div>
-                </li>
-                
-                <li>
-                    <a href="#" class="has-dropdown">Pages</a>
-                    <ul class="dropdown">
-                       
-                        <li><a href="#">About-Us</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">MB Fondation</a>
+                    <div class="category">
+                        <h3><ul> <li><a href="#">Womens collections</a></li></ul></h3>
+                        <ul>
+                            <li><a href="#">icône</a></li>
+                            <li><a href="#">icône 2.0</a></li>
+                            <li><a href="#"> ⁠made of Africa </a></li>
+                           
+                        </ul>
+                    </div>
+                    <div class="category">
+                        <h3><ul> <li><a href="#">Kids Collections</a></li></ul></h3>
+                        <ul>
+                            <li><a href="#">made of Africa</a></li>
+                           
+                            
+                        </ul>
+                    </div>
                    
-                </li>
-                <li><a href="Gallerie.html">Shooting</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="header-icons">
-            <i class="fas fa-search"></i>
-            <i class="fas fa-heart"></i>
-            <i class="fas fa-shopping-cart"></i>
-        </div>
-    </header>
+                    <div class="category">
+                        <h3>Trending</h3>
+                        <ul>
+                            <li><a href="#">New Arrivals</a></li>
+                            <li><a href="#">Best Sellers</a></li>
+                            <li><a href="#">Special Offers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            
+            <li>
+                <a href="#" class="has-dropdown">Pages</a>
+                <ul class="dropdown">
+                   
+                    <li><a href="about.html">About-Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">MB Fondation</a>
+               
+            </li>
+            <li><a href="Gallerie.html">Shooting</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="header-icons">
+        <i class="fas fa-search"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-shopping-cart"></i>
+    </div>
+</header>
+
 
 
 
@@ -254,7 +301,7 @@
         <h2>About Us</h2>
         <h1>Our Story</h1>
         <div class="about-text" id="aboutText">
-          MB-Creation... clothing that tells a story...
+          MB-Creation... clothing that tells a story... 
 
         </div>
         <button class="expand-btn" id="expandBtn">
@@ -267,6 +314,20 @@
     </div>
   </div>
 
+  <section class="store-location">
+    <h1 class="title-store">Store Location</h1>
+    <p class="video-text"> Our Store Comming Soon...</p>
+    <div class="video-container">
+      <!-- Remplacez "votre-video.mp4" par le chemin de votre vidéo -->
+      <video controls>
+          <source src="IMAGES/Videologo.mp4" type="video/mp4">
+          <!-- Vous pouvez ajouter d'autres formats pour une meilleure compatibilité -->
+          <source src="votre-video.webm" type="video/webm">
+          Votre navigateur ne prend pas en charge la lecture de vidéos.
+      </video>
+     
+  </div>
+  </section>
 
   <footer>
     <div class="footer-content">
@@ -277,14 +338,8 @@
         <div class="footer-column">
             <h3>ABOUT US</h3>
             <ul>
-                <li><a href="#">Our Story</a></li>
+                <li><a href="about.html">Our Story</a></li>
                 <li><a href="#">Store location</a></li>
-                <li><a href="#">Socials</a></li>
-                <div class="socials">
-                  <a href="">facebook</a>
-                  <a href="">instagram</a>
-                  <a href="">twitter</a>
-              </div>
             </ul>
         </div>
         <div class="footer-column">
@@ -293,6 +348,15 @@
                 <li><a href="#">Returns</a></li>
                 <li><a href="#">Size guide</a></li>
                 <li><a href="#">FAQs</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>FOLLOW US</h3>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Twitter</a></li>
             </ul>
         </div>
         <div class="footer-column">
@@ -307,10 +371,10 @@
 </footer>
 
   <script>
-    const fullText = `MB-Creation... clothing that tells a story. 
+    const fullText = `MB-Creation... clothing that tells a story.
 
-
-MB-Creation is an Afro-urban and chic Afro-urban clothing brand that was established under the initiative of its promoter and designer, Manuella Bufang, in 2017. Indeed, Mrs. Bufang has been passionate about fashion since her early adolescence. She is also very committed to the social and cultural development of her home country, Cameroon, through various charitable works and cultural events. This is how the idea came to her to combine her passions and her causes. The philosophy of the brand lies in its logo, which represents a proliferating root. This root refers to our essence but also to expansion. It is about reconnecting with our culture through clothing and sharing it with the world by connecting to it. To achieve this, the basic material for each piece will be AFRICAN PAGNE (traditional fabric).
+    
+  MB-Creation is an Afro-urban and chic Afro-urban clothing brand that was established under the initiative of its promoter and designer, Manuella Bufang, in 2017. Indeed, Mrs. Bufang has been passionate about fashion since her early adolescence. She is also very committed to the social and cultural development of her home country, Cameroon, through various charitable works and cultural events. This is how the idea came to her to combine her passions and her causes. The philosophy of the brand lies in its logo, which represents a proliferating root. This root refers to our essence but also to expansion. It is about reconnecting with our culture through clothing and sharing it with the world by connecting to it. To achieve this, the basic material for each piece will be AFRICAN PAGNE (traditional fabric).
 
 Thus, the brand's production will be based in Cameroon, aiming for "Made in Cameroon" while also creating employment. After multiple name changes, including B-Wear by M, Unik, Icône, and Authentic during the brand's creation phase, it will ultimately be registered as MB-Creation. MB-Creation is a brand that focuses on creating unique clothing. Manuella Bufang, the creator, highlights her personal style and originality in her collections. The emphasis is often placed on creative designs, utilizing quality materials and artisanal techniques. The brand aims to offer pieces that allow customers to stand out while celebrating their individuality.
 
@@ -319,6 +383,34 @@ Through MB-Creation, Manuella Bufang proposes collections that reflect her ident
 The label offers premium quality products often made with sustainable local materials and in respect of ethics.`;
     
     const shortText = ` MB-Creation... clothing that tells a story...`;
+
+
+
+   
+        function renderContent() {
+            const container = document.getElementById('content');
+            
+            // Title and tagline
+            const header = document.createElement('h1');
+            header.textContent = content.title;
+            container.appendChild(header);
+
+            const tagline = document.createElement('p');
+            tagline.className = 'tagline';
+            tagline.textContent = content.tagline;
+            container.appendChild(tagline);
+
+            // Sections
+            content.sections.forEach((section, index) => {
+                const div = document.createElement('div');
+                div.className = 'section';
+                div.innerHTML = section.text;
+                container.appendChild(div);
+            });
+        }
+
+        // Call function when page loads
+        document.addEventListener('DOMContentLoaded', renderContent);
 
   
     
