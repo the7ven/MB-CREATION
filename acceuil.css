@@ -879,7 +879,6 @@ footer {
         .arrival{
             width: 300px;
             grid-template-columns: repeat(2 , 1fr);
-            
             justify-content: center;
         }
    

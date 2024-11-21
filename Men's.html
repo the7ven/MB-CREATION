@@ -3,19 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fashion E-commerce</title>
+  <title>MB-Creation</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..
+  800&family=Kaushan+Script&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playwrite+GB+S:ital,
+  wght@0,100..400;1,100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,
+  700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&
+  family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap" rel="stylesheet"> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: "Raleway", sans-serif;
     }
 
   
-
-    .top-banner {
+.top-banner {
     background-color: #f5f5f5;
     padding: 8px 0;
     text-align: center;
@@ -161,151 +169,401 @@ nav li:hover .dropdown {
 }
 
 
+ /* Mobile menu button */
+ .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+ 
+
+
+  /* Hero Section */
+ 
+  .hero {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+    animation: fadeIn 3.5s ease-out;
+   
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+   
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 5%;
+    
+}
+
+.slide img{
+    width: 450px;
+}
+
+.slide.active {
+    opacity: 1;
+}
+/*
+.slide img{
+    width: 350px;
+}
+*/
+/* Styles des slides */
+.slide:nth-child(1) {
+    background-color: #ccad24;
+}
+
+.slide:nth-child(2) {
+    background-color: #ccad24;
+}
+
+.slide:nth-child(3) {
+    background-color: #ccad24;
+}
+
+.hero-content {
+    max-width: 600px;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out 0.3s;
+}
+
+.hero-content p {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out 0.5s;
+}
+
+.slide.active .hero-content h1,
+.slide.active .hero-content p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Navigation du Slider */
+.slider-nav {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgb(148, 147, 147);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+    background-color: #ccad24;
+    transform: scale(1.2);
+}
+
+/* Boutons précédent/suivant */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.slider-btn:hover {
+    background-color:  #000000;
+    color: #ccad24;
+}
+
+.slider-btn.prev {
+    left: 20px;
+}
+
+.slider-btn.next {
+    right: 20px;
+}
+
+/* Style du bouton Shop Now */
+.shop-now-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: #000;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease-out 0.5s;
+}
+
+.slide.active .shop-now-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.shop-now-btn:hover {
+    background-color: #af8f25;
+}
+
+/* Services Section */
+.services {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 5%;
+    background-color: white;
+    animation: fadeIn 3.5s ease-out;
+}
+
+.service-item {
+    text-align: center;
+    max-width: 250px;
+}
+
+.service-item i {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* animation section hero */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 
 
 
-        .hero{
-           
-            position: relative;
-            overflow: hidden;
-            height: 600px;
-        }
 
-        .slider {
-            position: relative;
-            height: 100%;
-            
-        }
+ /* Responsive Design */
+ @media screen and (max-width: 1024px) {
+    .dropdown.mega-menu {
+        width: 600px;
+        left: -100px;
+    }
+}
 
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            display: flex;
-            align-items: center;
-            padding: 4rem 2rem;
-            background-color: #f5f5f5;
-        }
+@media screen and (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
 
-        .slide.active {
-            opacity: 1;
-        }
+    nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        height: 100vh;
+        background: white;
+        padding: 20px;
+        transition: 0.3s;
+        overflow-y: auto;
+    }
 
-        /* Navigation Buttons */
-        .slider-nav {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            transform: translateY(-50%);
-            display: flex;
-            justify-content: space-between;
-            padding: 0 2rem;
-            z-index: 10;
-        }
+    nav.active {
+        left: 0;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
 
-        .slider-nav button {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 1rem;
-            cursor: pointer;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-        .slider-nav button:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+    .dropdown, .dropdown.mega-menu {
+        position: static;
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        padding: 0 0 0 20px;
+    }
 
-        /* Slide Indicators */
-        .slider-indicators {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 1rem;
-            z-index: 10;
-        }
+    .mega-menu {
+        display: block;
+        padding: 0 0 0 20px;
+    }
 
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    .mega-menu .category {
+        margin-bottom: 20px;
+    }
 
-        .indicator.active {
-            background-color: white;
-        }
+    nav li.active > .dropdown {
+        display: block;
+    }
 
-        /* Contenu du Slide */
-        .slide-content {
-            flex: 1;
-            padding: 10rem;
-            z-index: 5;
-        }
+    .has-dropdown::after {
+        content: '+';
+        margin-left: auto;
+    }
 
-        .slide-image {
-            flex: 1;
-            z-index: 5;
-        }
+    nav li.active > a.has-dropdown::after {
+        content: '-';
+    }
 
-        .slide-image img {
-            max-width: 100%;
-            height: auto;
-        }
+    footer {
+        font-size: 12px;
+       
+    }
 
-        /* Animation pour le texte */
-        .slide.active .slide-content h1 {
-            animation: slideInLeft 0.5s ease-out;
-        }
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        color: #e8e8e8;
+       
+    }
 
-        .slide.active .slide-content p {
-            animation: slideInLeft 0.5s ease-out 0.2s;
-            animation-fill-mode: both;
-        }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
 
+    
+}
+
+@media screen and (max-width: 480px) {
+    .main-header {
+        padding: 15px 3%;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .header-icons {
+        gap: 15px;
+    }
+
+    .header-icons i {
+        font-size: 16px;
+    }
+
+    .top-banner {
+        font-size: 12px;
+        padding: 6px 0;
+    }
+
+    footer {
+        font-size: 12px;
+       
+    }
+
+    .footer-content {
+       
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        color: #e8e8e8;
+       
+    }
 
    
+    .slide{
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .slide img{
+        width: 300px;
+    }
+
+   
+
+}
+
+::-webkit-scrollbar {
+    width: 10px;  /* Largeur de la scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;  /* Couleur de fond */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;  /* Couleur de la barre */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ccad24;  /* Couleur au survol */
+}
+
+
+.product-rating{
+    margin-top: 30px;
+}
+
+
+ 
 
     /* Categories Grid */
     .categories {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3,1fr);
       gap: 1rem;
       padding: 2rem;
     }
 
     .category-card {
       position: relative;
-      background-color: #f5f5f5;
       padding: 2rem;
       border-radius: 8px;
+     
     }
+
+    .category-card img{
+        width: 400px;
+       border-radius: 10px;
+    }
+
+
+
 
     /* Shop Section */
     .shop-info {
@@ -343,7 +601,7 @@ nav li:hover .dropdown {
 
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(4, minmax(250px, 1fr));
       gap: 2rem;
     }
 
@@ -389,7 +647,7 @@ nav li:hover .dropdown {
       padding: 1rem;
     }
 
-    /* Footer */
+   
    /* Footer */
 footer {
     background-color: #070707;
@@ -399,7 +657,7 @@ footer {
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     color: #e8e8e8;
    
@@ -476,6 +734,14 @@ footer {
     .btn:hover {
       opacity: 0.8;
     }
+
+
+    .featured-product{
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 2rem;
+    }
+
   </style>
 </head>
 <body>
@@ -499,7 +765,7 @@ footer {
     <nav>
         <ul>
             <li>
-                <a href="index.html">Home</a>
+                <a href="Acceuil.html">Home</a>
                
             </li>
             <li>
@@ -567,56 +833,48 @@ footer {
 </header>
 
    <!-- Hero Section avec Slider -->
+   
    <section class="hero">
     <div class="slider">
-        <!-- Slide 1 -->
         <div class="slide active">
-            <div class="slide-content">
-                <h1>MADE OF<br> AFRICA</h1>
-                <p>Lorem ipsum is simply dummy text of the printing and type-setting industry.</p>
-                <a href="#" class="btn">Read more</a>
+            <div class="hero-content">
+                <h1>MADE OF<br>AFRICA</h1>
+                <p> our male collection</p>
+                <a href="#" class="shop-now-btn">SHOP NOW</a>
             </div>
-            <div class="slide-image">
-                <img src="IMAGES/sellers1__3_-removebg-preview.png" alt="Fashion model 1">
-            </div>
+            <img src="IMAGES/sellers1__3_-removebg-preview.png" alt="Fashion Model 1" >
         </div>
-
-        <!-- Slide 2 -->
         <div class="slide">
-            <div class="slide-content">
-                <h1>Male<br>COLLECTION</h1>
-                <p>Discover our latest amazing male collection .</p>
-                <a href="#" class="btn">Shop Now</a>
+            <div class="hero-content">
+                <h1>Male<br>Collection</h1>
+                <p>Discover our latest amazing male collection</p>
+                <a href="#" class="shop-now-btn">DISCOVER NOW</a>
             </div>
-            <div class="slide-image">
-                <img src="/api/placeholder/600/400" alt="Fashion model 2">
-            </div>
+            <img src="IMAGES/sellers1__3_-removebg-preview.png" alt="Fashion Model 2">
         </div>
-
-        <!-- Slide 3 -->
         <div class="slide">
-            <div class="slide-content">
-                <h1>NEW ARRIVALS<br>2024</h1>
-                <p>Check out our newest styles and limited editions.</p>
-                <a href="#" class="btn">Discover</a>
+            <div class="hero-content">
+                <h1>New<br>collection 2024</h1>
+                <p></p>
+                <a href="#" class="shop-now-btn">EXPLORE NOW</a>
             </div>
-            <div class="slide-image">
-                <img src="/api/placeholder/600/400" alt="Fashion model 3">
-            </div>
+            <img src="IMAGES/sellers1__3_-removebg-preview.png" alt="Fashion Model 3" >
         </div>
+    </div>
 
-        <!-- Navigation Buttons -->
-        <div class="slider-nav">
-            <button class="prev-slide">&lt;</button>
-            <button class="next-slide">&gt;</button>
-        </div>
+    <!-- Navigation Dots -->
+    <div class="slider-nav">
+        <div class="slider-dot active"></div>
+        <div class="slider-dot"></div>
+        <div class="slider-dot"></div>
+    </div>
 
-        <!-- Slide Indicators -->
-        <div class="slider-indicators">
-            <span class="indicator active"></span>
-            <span class="indicator"></span>
-            <span class="indicator"></span>
-        </div>
+    <!-- Prev/Next Buttons -->
+    <div class="slider-btn prev">
+        <i class="fas fa-chevron-left"></i>
+    </div>
+    <div class="slider-btn next">
+        <i class="fas fa-chevron-right"></i>
     </div>
 </section>
 
@@ -624,29 +882,30 @@ footer {
   <!-- Categories -->
   <section class="categories">
     <div class="category-card">
-      <h2>MAN COLLECTION</h2>
+      <h2>Male COLLECTION</h2>
       <p>Lorem ipsum is simply dummy text of the printing.</p>
+      <img src="IMAGES/male1.png" alt="">
       <a href="#" class="btn">Read more</a>
     </div>
     <div class="category-card">
       <h2>BEST SELLING COLLECTION</h2>
-      <img src="/api/placeholder/200/200" alt="Handbag">
+      <img src="/api/placeholder/200/200" alt="">
     </div>
     <div class="category-card">
       <h2>Elegant design</h2>
-      <img src="/api/placeholder/200/200" alt="Shoes">
+      <img src="/api/placeholder/200/200" alt="">
     </div>
   </section>
 
   <!-- Shop Info -->
   <section class="shop-info">
     <div class="shop-image">
-      <img src="/api/placeholder/600/400" alt="Shop interior">
+      <img src="" alt="Shop interior">
     </div>
     <div class="shop-content">
       <h2>Welcome to name shop</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <img src="/api/placeholder/200/100" alt="Signature">
+      <img src="" alt="Signature">
     </div>
   </section>
 
@@ -656,9 +915,79 @@ footer {
       <button class="btn">NEW ARRIVALS</button>
       <button class="btn">LATEST TRENDS</button>
       <button class="btn">MEN'S COLLECTION</button>
-      <button class="btn">WOMEN'S COLLECTION</button>
+      
     </div>
+
+      <h1 class="featured-product">Featured Products</h1>
+
     <div class="product-grid">
+        
+      <div class="product-card">
+        <img src="/api/placeholder/300/400" alt="Product">
+        <div class="product-info">
+          <h3>Fashion name</h3>
+          <p>Price: $29</p>
+          <button class="btn">Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="/api/placeholder/300/400" alt="Product">
+        <div class="product-info">
+          <h3>Fashion name</h3>
+          <p>Price: $29</p>
+          <button class="btn">Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="/api/placeholder/300/400" alt="Product">
+        <div class="product-info">
+          <h3>Fashion name</h3>
+          <p>Price: $29</p>
+          <button class="btn">Add to cart</button>
+        </div>
+      </div>
+
+
+      <div class="product-card">
+        <img src="/api/placeholder/300/400" alt="Product">
+        <div class="product-info">
+          <h3>Fashion name</h3>
+          <p>Price: $29</p>
+          <button class="btn">Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="/api/placeholder/300/400" alt="Product">
+        <div class="product-info">
+          <h3>Fashion name</h3>
+          <p>Price: $29</p>
+          <button class="btn">Add to cart</button>
+        </div>
+      </div>
+
+
+      <div class="product-card">
+        <img src="/api/placeholder/300/400" alt="Product">
+        <div class="product-info">
+          <h3>Fashion name</h3>
+          <p>Price: $29</p>
+          <button class="btn">Add to cart</button>
+        </div>
+      </div>
+
+
+      <div class="product-card">
+        <img src="/api/placeholder/300/400" alt="Product">
+        <div class="product-info">
+          <h3>Fashion name</h3>
+          <p>Price: $29</p>
+          <button class="btn">Add to cart</button>
+        </div>
+      </div>
+
       <div class="product-card">
         <img src="/api/placeholder/300/400" alt="Product">
         <div class="product-info">
@@ -729,85 +1058,9 @@ footer {
 </footer>
 
   <script>
-    // Simple slider functionality
-    $(document).ready(function() {
-            // Variables pour le slider
-            let currentSlide = 0;
-            const slides = $('.slide');
-            const indicators = $('.indicator');
-            const totalSlides = slides.length;
-            let slideInterval;
-
-            // Fonction pour changer de slide
-            function goToSlide(index) {
-                // Retire la classe active de tous les slides et indicateurs
-                slides.removeClass('active');
-                indicators.removeClass('active');
-                
-                // Ajoute la classe active au slide et à l'indicateur courant
-                slides.eq(index).addClass('active');
-                indicators.eq(index).addClass('active');
-                
-                currentSlide = index;
-            }
-
-            // Fonction pour le slide suivant
-            function nextSlide() {
-                goToSlide((currentSlide + 1) % totalSlides);
-            }
-
-            // Fonction pour le slide précédent
-            function prevSlide() {
-                goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
-            }
-
-            // Événements pour les boutons de navigation
-            $('.next-slide').click(function() {
-                nextSlide();
-                resetInterval();
-            });
-
-            $('.prev-slide').click(function() {
-                prevSlide();
-                resetInterval();
-            });
-
-            // Événements pour les indicateurs
-            $('.indicator').click(function() {
-                const index = $(this).index();
-                goToSlide(index);
-                resetInterval();
-            });
-
-            // Défilement automatique
-            function startInterval() {
-                slideInterval = setInterval(nextSlide, 5000); // Change de slide toutes les 5 secondes
-            }
-
-            function resetInterval() {
-                clearInterval(slideInterval);
-                startInterval();
-            }
-
-            // Démarre le défilement automatique
-            startInterval();
-
-            // Pause le slider au survol
-            $('.hero').hover(
-                function() { clearInterval(slideInterval); },
-                function() { startInterval(); }
-            );
-
-
-            $('.slider-nav button').hover(
-                function() {
-                    $(this).css('transform', 'translateY(-50%) scale(1.1)');
-                },
-                function() {
-                    $(this).css('transform', 'translateY(-50%) scale(1)');
-                }
-            );
-        });
+   
   </script>
+
+  <script src="main.js"></script>
 </body>
 </html>
