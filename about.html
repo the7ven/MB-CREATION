@@ -40,8 +40,7 @@
       grid-template-columns: repeat(1,1fr);
     }
 
-
-
+   
    
   }
 
@@ -178,6 +177,7 @@
         .title-store{
           text-align: center;
           font-size: 3rem;
+          
         }
 
 
@@ -198,7 +198,104 @@
         }
 
 
+      .card-img{
+        width: 100%;
+      }
+     
+
+      .card-img .img1 .card1{
+        width: 150px;
+      }
+
+     
+      .card-img .img1 .card2{
+        width: 180px;
+      }
+
+
+     .img .card3{
+      width: 200px;
+      rotate: 30deg;
+     }
+
+     .img .card4{
+      width: 120px;
+      rotate: -30deg;
+     }
+
+     
+     body{
+      overflow-x: hidden;
+     }
+    
+
+
         }
+
+        .card-img{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 400px;
+        }
+
+        .card1{
+          width: 250px;
+          border-radius: 20px;
+          border: #af8f25 5px solid;
+          rotate: -15deg;
+          
+        }
+        .card2{
+          width: 350px;
+          border-radius: 20px;
+          border-radius: 20px;
+          border:#af8f25 5px solid;
+          rotate: 25deg;
+         
+         
+        }
+
+        .card3{
+          width: 300px;
+          border-radius: 20px;
+          border-radius: 20px;
+          border:#af8f25 5px solid;
+          rotate: 30deg;
+         
+         
+        }
+
+        .card4{
+          width: 200px;
+          border-radius: 20px;
+          border-radius: 20px;
+          border:#af8f25 5px solid;
+        }
+
+        .img{
+          display: flex;
+          justify-content: center;
+         align-items: center;
+         margin-bottom: 30px;
+        }
+
+      .img-rigth .rigth{
+        width: 500px;
+        border-radius: 10px;
+       } 
+       .img-rigth{
+        margin-top: 30px;
+       }
+
+
+       .slogan h1{
+        font-size: 8rem;
+        text-align: center;
+        margin-bottom: 50px;
+        -webkit-text-stroke: 3px #ccad24;
+        -webkit-text-fill-color: rgba(0, 0, 0, 0);
+       }
 
 </style>
 </head>
@@ -310,6 +407,7 @@
           <img src="IMAGES/hero-image1.png" alt="Product" class="item-image">
           <div class="ratings">⭐⭐⭐⭐⭐</div>
         </div>
+        
       </div>
 
       <!-- Right Column -->
@@ -326,9 +424,16 @@
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </button>
+        <div class="img-rigth">
+          <img src="IMAGES/about2.jpg" alt="" class="rigth"  >
+        </div>
       </div>
+     
     </div>
   </div>
+
+  <div class="slogan"><h1>Dare To Be Authentic</h1></div>
+
 
   <section class="store-location">
     <h1 class="title-store">Store Location</h1>
