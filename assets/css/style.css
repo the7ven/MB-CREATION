@@ -13,18 +13,17 @@ body {
     font-family: Arial, sans-serif;
 }
 
-
-
 .main-image {
-    width: 900px;
+    width: 100%;
+    max-width: 900px;
     height: auto;
     text-align: center;
     align-items: center;
     margin-top: 50px;
-
+    animation: fadeIn 3.5s ease-out;
 }
 
- .btn{
+.btn {
     text-decoration: none;
     color: #e6bf42;
     font-size: 25px;
@@ -33,15 +32,13 @@ body {
     border-radius: 30px;
     transition: all ease-in-out .5s;
     margin-right: 30px;
- }
+}
 
-
- .btn:hover{
+.btn:hover {
     color: black;
-    background-color:#e6bf42;
+    background-color: #e6bf42;
+}
 
- }
-/* Animation pour l'image centrale */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -53,27 +50,18 @@ body {
     }
 }
 
-
-
-@media (max-width: 768px){
-
+@media (max-width: 768px) {
     .main-image {
-        width: 350px;
+        width: 100%;
+        max-width: 350px;
         height: auto;
         text-align: center;
-        align-items: center;  
+        align-items: center;
         margin-top: 150px;
     }
 
-
-    .btn{
+    .btn {
         font-size: 15px;
         margin-left: 25px;
     }
-
-  
-}
-
-.main-image {
-    animation: fadeIn 3.5s ease-out;
 }
