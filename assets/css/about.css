@@ -5,6 +5,264 @@
     box-sizing: border-box;
   }
 
+
+  .top-banner {
+    background-color: #f5f5f5;
+    padding: 8px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.main-header {
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background: white;
+    z-index: 1000;
+}
+
+.logo img{
+   width: 50px;
+   border-radius: 50%;
+}
+
+   
+
+/* Navigation styles mis à jour */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    
+}
+
+nav li {
+    position: relative;
+   
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+    transition: all ease-in-out .3s;
+   
+   
+}
+
+nav a:hover{
+    background-color: #000;
+    color: #ccad24;
+    padding: 8px 15px;
+    border-radius: 30px;
+}
+
+/* Style des menus déroulants */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    padding: 10px 0;
+}
+
+.dropdown.mega-menu {
+    width: 800px;
+    left: -200px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 20px;
+    gap: 5px;
+}
+
+nav li:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown li {
+    padding: 0;
+}
+
+.dropdown a {
+    padding: 8px 20px;
+    display: block;
+    color: #080808;
+    transition: color 0.3s;
+}
+
+.dropdown a:hover {
+    color: #e9c72f;
+    background-color: #f8f8f8;
+}
+
+/* Style pour les sous-catégories du mega menu */
+.mega-menu .category {
+    margin-bottom: 15px;
+}
+
+.mega-menu h3 ul li a{
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.mega-menu ul {
+    display: block;
+}
+
+.mega-menu li {
+    margin: 5px 0;
+}
+
+.mega-menu a {
+    font-size: 14px;
+}
+
+/* Icône pour indiquer les menus déroulants */
+.has-dropdown::after {
+    content: '▼';
+    font-size: 8px;
+    margin-left: 5px;
+}
+
+/* Reste des styles précédents... */
+.header-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.header-icons i {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+ /* Mobile menu button */
+ .mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .dropdown.mega-menu {
+      width: 600px;
+      left: -100px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-menu-btn {
+      display: block;
+  }
+
+  nav {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 80%;
+      height: 100vh;
+      background: white;
+      padding: 20px;
+      transition: 0.3s;
+      overflow-y: auto;
+  }
+
+  nav.active {
+      left: 0;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  nav ul {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .dropdown, .dropdown.mega-menu {
+      position: static;
+      width: 100%;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      display: none;
+      box-shadow: none;
+      padding: 0 0 0 20px;
+  }
+
+  .mega-menu {
+      display: block;
+      padding: 0 0 0 20px;
+  }
+
+  .mega-menu .category {
+      margin-bottom: 20px;
+  }
+
+  nav li.active > .dropdown {
+      display: block;
+  }
+
+  .has-dropdown::after {
+      content: '+';
+      margin-left: auto;
+  }
+
+  nav li.active > a.has-dropdown::after {
+      content: '-';
+  }
+
+
+  .best-seller-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      text-align: center;
+    
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main-header {
+      padding: 15px 3%;
+  }
+
+  .logo {
+      font-size: 20px;
+  }
+
+  .header-icons {
+      gap: 15px;
+  }
+
+  .header-icons i {
+      font-size: 16px;
+  }
+
+  .top-banner {
+      font-size: 12px;
+      padding: 6px 0;
+  }
+}
+
+
  
 
   .about-container {
