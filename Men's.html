@@ -14,7 +14,6 @@
   700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&
   family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap" rel="stylesheet"> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
- 
   <link rel="stylesheet" href="assets/css/men.css">
 </head>
 <body>
@@ -188,103 +187,10 @@
   </section>
 
   <!-- Products -->
-<style>
 
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
-.product-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
+<h1 class="best-sellers-title">Best Sellers</h1>
 
-.product-card:hover {
-    transform: scale(1.05);
-}
-
-.product-card img {
-    max-width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.product-card h3 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-}
-
-.product-card .price {
-    color: #2ecc71;
-    font-weight: bold;
-    font-size: 1.3rem;
-}
-
-.product-card button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: background-color 0.3s ease;
-}
-
-.product-card button:hover {
-    background-color: #2980b9;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.7);
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 600px;
-    position: relative;
-    text-align: center;
-}
-
-.close-modal {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-}
-</style>
-</head>
-<body>
 <div class="product-grid" id="productGrid"></div>
 
 <div id="productModal" class="modal">
@@ -298,14 +204,6 @@
 </div>
 </div>
 
-
-
-
-  
-  
-
- 
- 
 
  <!-- Products 
 
@@ -357,6 +255,85 @@
  -->
 
    
+<section class="collections">
+
+
+
+
+ <div class="collection">
+    <h2 class="collection-title">Icone</h2>
+    <div class="products-grid">
+        <div class="products-card">
+            <img src="assets/images/malepage (1).PNG" alt="Produit 1" class="products-image">
+            <div class="product-name">product name</div>
+            <div class="product-price">39.99€</div>
+            <button class="add-to-cart">Add To Cart</button>
+        </div>
+        <div class="products-card">
+            <img src="assets/images/malepage (2).PNG" alt="Produit  2" class="products-image">
+            <div class="product-name">product name</div>
+            <div class="product-price">49.99€</div>
+            <button class="add-to-cart">Add To Cart</button>
+        </div>
+        <div class="products-card">
+            <img src="assets/images/malepage (3).PNG" alt="Produit 3" class="products-image">
+            <div class="product-name">product name</div>
+            <div class="product-price">79.99€</div>
+            <button class="add-to-cart">Add To Cart</button>
+        </div>
+    </div>
+</div>
+
+<div class="collection">
+    <h2 class="collection-title">Icone 2.0</h2>
+    <div class="products-grid">
+        <div class="products-card">
+            <img src="/api/placeholder/200/250" alt="Produit 1" class="products-image">
+            <div class="product-name">product name</div>
+            <div class="product-price">159.99€</div>
+            <button class="add-to-cart">Add To Cart</button>
+        </div>
+        <div class="products-card">
+            <img src="/api/placeholder/200/250" alt="Produit 2" class="products-image">
+            <div class="product-name">product name</div>
+            <div class="product-price">89.99€</div>
+            <button class="add-to-cart">Add To Cart</button>
+        </div>
+        <div class="products-card">
+            <img src="/api/placeholder/200/250" alt="Produit 3" class="products-image">
+            <div class="product-name">product name</div>
+            <div class="product-price">34.99€</div>
+            <button class="add-to-cart">Add To Cart</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="collection">
+    <h2 class="collection-title">Made Of Africa</h2>
+    <div class="products-grid">
+        <div class="products-card">
+            <img src="/api/placeholder/200/250" alt="Produit 1" class="products-image">
+            <div class="product-name">product name</div>
+            <div class="product-price">159.99€</div>
+            <button class="add-to-cart">Add To Cart</button>
+        </div>
+        <div class="products-card">
+            <img src="/api/placeholder/200/250" alt="Produit 2" class="products-image">
+            <div class="product-name">product name</div>
+            <div class="product-price">89.99€</div>
+            <button class="add-to-cart">Add To Cart</button>
+        </div>
+        <div class="products-card">
+            <img src="/api/placeholder/200/250" alt="Produit 3" class="products-image">
+            <div class="product-name">product name</div>
+            <div class="product-price">34.99€</div>
+            <button class="add-to-cart">Add To Cart</button>
+        </div>
+    </div>
+</div>
+
+</section>
    <!-- Footer -->
      
   <footer>
