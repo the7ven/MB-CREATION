@@ -667,7 +667,6 @@ nav li:hover .dropdown {
 }
 
 
-
 footer {
   background-color: #070707;
   padding: 60px 5% 20px;
@@ -675,9 +674,10 @@ footer {
 }
 
 .footer-content {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
   color: #e8e8e8;
  
 }
@@ -914,6 +914,13 @@ footer {
 
 
 @media screen and (max-width: 768px){
+  .collection{
+    flex-direction: column;
+  }
+
+.products-grid {
+  flex-direction:column ;
+}
 
 }
 
