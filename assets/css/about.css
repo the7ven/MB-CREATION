@@ -553,3 +553,83 @@ nav li:hover .dropdown {
          }
        }
 
+
+       footer {
+        background-color: #070707;
+        padding: 60px 5% 20px;
+       
+      }
+      
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        flex-wrap: wrap;
+        color: #e8e8e8;
+       
+      }
+      
+      .footer-column h4 {
+        color: #ccad24;
+      }
+      
+      .footer-column h3 {
+        margin-bottom: 20px;
+      }
+      
+      .footer-column p {
+        margin-bottom: 10px;
+      }
+      
+      .footer-column ul {
+        list-style: none;
+        padding: 0;
+      }
+      
+      .footer-column li {
+        margin-bottom: 10px;
+      }
+      
+      .footer-column ul li a {
+        text-decoration: none;
+        color: #888;
+        transition: color 0.3s;
+      }
+      
+      .footer-column ul li a:hover {
+        color: #ccad24;
+      }
+      
+      .subscribe-form input {
+        padding: 10px;
+        width: 70%;
+        margin-bottom: 10px;
+      }
+      
+      .subscribe-btn {
+        padding: 10px 20px;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        border: none;
+        cursor: pointer;
+      }
+      
+      .socials a {
+        text-decoration: none;
+        color: #888;
+        transition: all ease 0.3s;
+      }
+      
+      .socials a:hover {
+        color: #ccad24;
+      }
+      
+      @media screen and (max-width: 768px) {
+        .footer-content {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+      }
