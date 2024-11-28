@@ -552,7 +552,7 @@ nav li:hover .dropdown {
   .shop-content {
     flex: 1;
   }
-
+ 
 
   /* Buttons */
   .btn {
@@ -674,6 +674,9 @@ footer {
 }
 
 .footer-content {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
   display: flex;
   justify-content: space-between;
   gap: 30px;
@@ -682,7 +685,7 @@ footer {
  
 }
 
-.footer-column h4{
+.footer-column h4 {
   color: #ccad24;
 }
 
@@ -690,26 +693,26 @@ footer {
   margin-bottom: 20px;
 }
 
-.footer-column p{
+.footer-column p {
   margin-bottom: 10px;
-  
 }
 
 .footer-column ul {
   list-style: none;
+  padding: 0;
 }
 
 .footer-column li {
   margin-bottom: 10px;
 }
 
-.footer-column ul li a{
+.footer-column ul li a {
   text-decoration: none;
   color: #888;
+  transition: color 0.3s;
 }
 
-.footer-column ul li a:hover{
-  
+.footer-column ul li a:hover {
   color: #ccad24;
 }
 
@@ -727,15 +730,27 @@ footer {
   cursor: pointer;
 }
 
-
-.socials a{
+.socials a {
   text-decoration: none;
   color: #888;
-  transition: all ease .3s;
+  transition: all ease 0.3s;
 }
 
-.socials a:hover{
+.socials a:hover {
   color: #ccad24;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
 }
 
 
