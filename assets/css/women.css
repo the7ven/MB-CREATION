@@ -524,10 +524,12 @@ nav li:hover .dropdown {
     display: flex;
     flex-direction: column;
     width: 350px;
+   
 }
 .products-card:hover {
     transform: scale(1.05);
 }
+
 .products-image {
     max-width: 100%;
     height: 250px;
