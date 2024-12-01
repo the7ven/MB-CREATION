@@ -540,11 +540,13 @@ nav li:hover .dropdown {
 
 
        .slogan h1 {
-        font-size: 4rem;
+        font-size: 3rem;
         text-align: center;
         margin-bottom: 50px;
         color:#ead833 ;
-        font-family: "Protest Revolution", sans-serif;
+        font-family: "Kaushan Script", serif;
+        font-weight: 400;
+        font-style: normal;
         
        }
 

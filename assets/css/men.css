@@ -577,6 +577,7 @@ nav li:hover .dropdown {
       font-size: 2rem;
   }
 
+   /* carousel */
 
   .carousel-container {
           width: 100%;
@@ -816,7 +817,7 @@ footer {
     margin-bottom: 10px;
 }
 .add-to-cart {
-    background-color: #28a745;
+    background-color:#ccad24 ;
     color: white;
     border: none;
     padding: 10px;

@@ -65,20 +65,48 @@ class Slider {
     }
 }
 
+
+
+
+//CAROUSEL
+
+
+let currentSlide = 0;
+const carousel = document.getElementById('carousel');
+const dots = document.getElementById('carousel-dots').getElementsByClassName('dot');
+const slides = carousel.getElementsByClassName('carousel-slide');
+
+function changeSlide(direction) {
+    currentSlide += direction;
+    
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    } else if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+
+    updateCarousel();
+}
+
+function goToSlide(index) {
+    currentSlide = index;
+    updateCarousel();
+}
+
+function updateCarousel() {
+    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove('active');
+    }
+    dots[currentSlide].classList.add('active');
+}
+
+
 // Initialiser le slider
 document.addEventListener('DOMContentLoaded', () => {
     new Slider();
 });
-
-
-
-document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-    document.querySelector('nav').classList.toggle('active');
-});
-
-
-
-
 
 
 
