@@ -1,3 +1,6 @@
+
+
+
 let currentSlide = 0;
 const carousel = document.getElementById('carousel');
 const dots = document.getElementById('carousel-dots').getElementsByClassName('dot');
@@ -130,3 +133,116 @@ document.querySelector('nav').classList.remove('active');
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Données de produits
+
+const products = [
+    {
+        id: 1,
+        name: "",
+        description: "",
+        price: 999.99,
+        image: "IMAGES/malepage (4).PNG"
+    },
+    {
+        id: 2,
+        name: "",
+        description: "",
+        price: 599.99,
+        image: "IMAGES/malepage (3).PNG"
+    },
+    {
+        id: 3,
+        name: "",
+        description: "",
+        price: 199.99,
+        image: "IMAGES/malepage (2).PNG"
+    },
+    {
+        id: 4,
+        name: "",
+        description: "",
+        price: 249.99,
+        image: "IMAGES/malepage (1).PNG"
+    },
+  
+];
+
+
+
+// Génération de la grille de produits
+function generateProductGrid() {
+const gridContainer = document.getElementById('productGrid');
+
+products.forEach(product => {
+const productCard = document.createElement('div');
+productCard.classList.add('product-card');
+productCard.innerHTML = `
+    <img src="${product.image}" alt="${product.name}">
+    <h3>${product.name}</h3>
+    <p class="price">${product.price.toFixed(2)} cfa</p>
+    <button onclick="openModal(${product.id})">Détails</button>
+`;
+gridContainer.appendChild(productCard);
+});
+}
+
+// Ouverture du modal
+function openModal(productId) {
+const product = products.find(p => p.id === productId);
+const modal = document.getElementById('productModal');
+
+document.getElementById('modalImage').src = product.image;
+document.getElementById('modalTitle').textContent = product.name;
+document.getElementById('modalDescription').textContent = product.description;
+document.getElementById('modalPrice').textContent = `${product.price.toFixed(2)} cfa`;
+
+modal.style.display = 'flex';
+}
+
+// Fermeture du modal
+function closeModal() {
+const modal = document.getElementById('productModal');
+modal.style.display = 'none';
+}
+
+// Événements
+document.querySelector('.close-modal').addEventListener('click', closeModal);
+window.addEventListener('click', (event) => {
+const modal = document.getElementById('productModal');
+if (event.target === modal) {
+closeModal();
+}
+});
+
+// Initialisation
+generateProductGrid();
