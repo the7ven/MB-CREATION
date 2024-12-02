@@ -212,15 +212,15 @@ nav li:hover .dropdown {
 */
 /* Styles des slides */
 .slide:nth-child(1) {
-  background-color: #ccad24;
+  background-color: #f8f8f8;
 }
 
 .slide:nth-child(2) {
-  background-color: #ccad24;
+  background-color: #ffffff;
 }
 
 .slide:nth-child(3) {
-  background-color: #ccad24;
+  background-color: #ffffff;
 }
 
 .hero-content {
