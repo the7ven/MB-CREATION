@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new Slider();
 });
 
-
+// Gestion menus sur mobile
 
 document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
     document.querySelector('nav').classList.toggle('active');
