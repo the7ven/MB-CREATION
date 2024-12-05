@@ -2,143 +2,107 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallerie - MB-Creation</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/galerie.css">
-  <link rel="stylesheet" href="assets/css/acceuil.css">
+    <title>Galerie d'images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .thumbnail {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.05);
+        }
+
+        #modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #modalImage {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-
-    <div class="top-banner">
-        Free delivery on order over $200
-    </div>
-
-    <header class="main-header">
-
-        <button class="mobile-menu-btn">
-            <i class="fas fa-bars"></i>
-        </button>
-
-
-        <div class="logo">
-            <a href="Acceuil.html"><img src="assets/images/LOGO.png" alt="logo"></a>
-        </div>
-        
-
-        <nav>
-            <ul>
-                <li>
-                    <a href="index.html">Home</a>
-                   
-                </li>
-                <li>
-                    <a href="#" class="has-dropdown">Shop</a>
-                    <div class="dropdown mega-menu">
-                        <div class="category">
-                            <h3><ul> <li><a href="#">Men's Fashion</a></li></ul></h3>
-                            <ul>
-                                <li><a href="#">collection-1</a></li>
-                                <li><a href="#">collection-2</a></li>
-                                <li><a href="#">collection-3</a></li>
-                               
-                            </ul>
-                        </div>
-                        <div class="category">
-                            <h3><ul> <li><a href="#">Womens Fashion</a></li></ul></h3>
-                            <ul>
-                                <li><a href="#">clothes</a></li>
-                                <li><a href="#">Wallets</a></li>
-                                <li><a href="#">Bags</a></li>
-                                <li><a href="#">Sunglasses</a></li>
-                               
-                            </ul>
-                        </div>
-                        <div class="category">
-                            <h3><ul> <li><a href="#">Kids</a></li></ul></h3>
-                            <ul>
-                                <li><a href="#">clothes</a></li>
-                                <li><a href="#">Wallets</a></li>
-                                <li><a href="#">Bags</a></li>
-                                <li><a href="#">Sunglasses</a></li>
-                                
-                            </ul>
-                        </div>
-                       
-                        <div class="category">
-                            <h3>Trending</h3>
-                            <ul>
-                                <li><a href="#">New Arrivals</a></li>
-                                <li><a href="#">Best Sellers</a></li>
-                                <li><a href="#">Sale Items</a></li>
-                                <li><a href="#">Special Offers</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" class="has-dropdown">Collection</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Summer Collection</a></li>
-                        <li><a href="#">Winter Collection</a></li>
-                        <li><a href="#">Special Edition</a></li>
-                        <li><a href="#">Premium Collection</a></li>
-                        <li><a href="#">Holiday Edition</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" class="has-dropdown">Pages</a>
-                    <ul class="dropdown">
-                       
-                        <li><a href="#">About-Us</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">MB Fondation</a>
-                   
-                </li>
-                <li><a href="#">Shooting</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="header-icons">
-            <i class="fas fa-search"></i>
-            <i class="fas fa-heart"></i>
-            <i class="fas fa-shopping-cart"></i>
-        </div>
-    </header>
-
     <div class="gallery">
-        <div class="gallery-item">
-            <img src="assets/images/product-test.png" alt="Image 1">
-        </div>
-        <div class="gallery-item">
-            <img src="assets/images/hero3.png" alt="Image 2">
-        </div>
-        <div class="gallery-item">
-            <img src="assets/images/product-test.png" alt="Image 3">
-        </div>
-        <div class="gallery-item">
-            <img src="assets/images/hero2.png" alt="Image 4">
-        </div>
-        <div class="gallery-item">
-            <img src="assets/images/product-test.png" alt="Image 5">
-        </div>
-        <div class="gallery-item">
-            <img src="assets/images/hero-image1.png" alt="Image 6">
-        </div>
+        <img src="/api/placeholder/200/200?text=Image1" alt="Image 1" class="thumbnail">
+        <img src="/api/placeholder/200/200?text=Image2" alt="Image 2" class="thumbnail">
+        <img src="/api/placeholder/200/200?text=Image3" alt="Image 3" class="thumbnail">
+        <img src="/api/placeholder/200/200?text=Image4" alt="Image 4" class="thumbnail">
+        <img src="/api/placeholder/200/200?text=Image5" alt="Image 5" class="thumbnail">
+        <img src="/api/placeholder/200/200?text=Image6" alt="Image 6" class="thumbnail">
     </div>
 
-    <div id="imageModal" class="modal">
+    <div id="modal">
         <span class="close">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <button class="nav-button prev">&lt;</button>
-        <button class="nav-button next">&gt;</button>
+        <img id="modalImage" src="" alt="Image agrandie">
     </div>
 
-    <script src="assets/js/gallerie.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const modal = document.getElementById('modal');
+            const modalImage = document.getElementById('modalImage');
+            const closeBtn = document.querySelector('.close');
+
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', () => {
+                    modal.style.display = 'flex';
+                    modalImage.src = thumbnail.src;
+                });
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

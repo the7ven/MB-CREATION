@@ -15,14 +15,19 @@
 }
 
 .main-header {
-    padding: 20px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    background: white;
-    z-index: 1000;
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  z-index: 1000;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  z-index: 1000; 
 }
+
 
 .logo img{
    width: 50px;

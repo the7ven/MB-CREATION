@@ -14,14 +14,18 @@
 }
 
 .main-header {
-    padding: 20px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    background: white;
-    z-index: 1000;
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  z-index: 1000; 
 }
+
 
 .logo img{
    width: 50px;
@@ -412,8 +416,9 @@ footer {
     background-image: linear-gradient(to right, rgba(27, 28, 29, 0.8), rgba(132, 156, 167, 0.8)),  url('/assets/images/banner\ \(1\).png');
     background-size: cover;
     background-position: center;
-    min-height: 600px;
+    min-height: 650px;
     align-items: center;
+    padding-top: 50px;
 
 }
 

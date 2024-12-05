@@ -5,6 +5,18 @@
     font-family: "Raleway", sans-serif;
 }
 
+.main-header{
+    position: fixed; /* Rend la barre de navigation statique */
+    top: 0; /* Placée en haut de la page */
+    left: 0; /* Étirée sur toute la largeur */
+    width: 100%; /* Largeur à 100% */
+    background-color: #333;
+   
+    padding: 15px 0;
+    z-index: 1000; /* Assure que la navbar reste au-dessus des autres éléments */
+   
+}
+
 
 .top-banner {
     background-color: #f5f5f5;
@@ -18,9 +30,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
     background: white;
     z-index: 1000;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 1000; 
 }
 
 .logo img{
