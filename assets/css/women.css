@@ -11,17 +11,25 @@
     padding: 8px 0;
     text-align: center;
     font-size: 14px;
+    position: fixed; 
+    width: 100%;
+    align-items: center;
+    z-index: 1000;
+    top: 0%;
+    left: 0;
+    
+
 }
 
 .main-header {
-    padding: 20px 5%;
+    padding: 20px 2%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: white;
     z-index: 1000;
     position: fixed; 
-    top: 0; 
+    top: 25px; 
     left: 0; 
     width: 100%; 
     z-index: 1000; 
@@ -173,8 +181,9 @@ nav li:hover .dropdown {
    /* Hero Section */
  
    .hero {
+    margin-top:    50px;
     position: relative;
-    height: 600px;
+    height: 700px;
     overflow: hidden;
     animation: fadeIn 3.5s ease-out;
    

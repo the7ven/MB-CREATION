@@ -5,17 +5,7 @@
     font-family: "Raleway", sans-serif;
 }
 
-.main-header{
-    position: fixed; /* Rend la barre de navigation statique */
-    top: 0; /* Placée en haut de la page */
-    left: 0; /* Étirée sur toute la largeur */
-    width: 100%; /* Largeur à 100% */
-    background-color: #333;
-   
-    padding: 15px 0;
-    z-index: 1000; /* Assure que la navbar reste au-dessus des autres éléments */
-   
-}
+
 
 
 .top-banner {
@@ -23,17 +13,25 @@
     padding: 8px 0;
     text-align: center;
     font-size: 14px;
+    position: fixed; 
+    width: 100%;
+    align-items: center;
+    z-index: 1000;
+    top: 0%;
+    left: 0;
+    
+
 }
 
 .main-header {
-    padding: 20px 5%;
+    padding: 20px 2%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: white;
     z-index: 1000;
     position: fixed; 
-    top: 0; 
+    top: 25px; 
     left: 0; 
     width: 100%; 
     z-index: 1000; 
@@ -171,8 +169,9 @@ nav li:hover .dropdown {
    /* Hero Section */
  
    .hero {
+    margin-top:    50px;
     position: relative;
-    height: 600px;
+    height: 700px;
     overflow: hidden;
     animation: fadeIn 3.5s ease-out;
    
