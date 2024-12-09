@@ -562,6 +562,10 @@ nav li:hover .dropdown {
   flex-direction:column ;
 }
 
+.hero{
+    margin-top: 100px;
+  }
+
 }
 
 
