@@ -831,7 +831,9 @@ footer {
     }
 
    
-
+    .hero{
+        margin-top: 120px;
+      }
 
     footer {
         font-size: 12px;
