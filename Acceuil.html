@@ -46,7 +46,7 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
                             <h3><ul> <li><a href="Men's.html">Men's Collections</a></li></ul></h3>
                             <ul>
                                 <li><a href="Men's.html#icone"  >icône</a></li>
-                                <li><a href="Men's.html#icone2.0">icône 2.0</a></li>
+                                <li><a href="Men's.html#icone-2.0">icône 2.0</a></li>
                                 <li><a href="Men's.html#made-of-africa"> ⁠made of Africa </a></li>
                             </ul>
                         </div>
@@ -54,7 +54,7 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
                             <h3><ul> <li><a href="women.html">Womens collections</a></li></ul></h3>
                             <ul>
                                 <li><a href="women.html#icone">icône</a></li>
-                                <li><a href="women.html#icone2.0">icône 2.0</a></li>
+                                <li><a href="women.html#icone-2.0">icône 2.0</a></li>
                                 <li><a href="women.html#made-of-africa"> ⁠made of Africa </a></li>
                                
                             </ul>
@@ -169,180 +169,30 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
         </div>
     </section>
 
+    <section class="new-arrivals">
 
-    <section class="Products"  id="">
+    <h1 class="title-new-arivals">New Arrivals</h1>
 
-        <h1>New Arrival</h1>
-    
-    <div class="arrivals">
-    
-    
-       
-        <div class="product" onclick="openModal(this)">
-            <img src="assets/images/slider1 (3).jpg" alt="Produit 1" class="product-image">
-            <h3>Produit 1</h3>
-            <p>99,99 €</p>
-            
-        </div>
-        <div class="product" onclick="openModal(this)">
-            <img src="assets/images/slider1 (5).jpg" alt="Produit 2" class="product-image">
-            <h3>Produit 2</h3>
-            <p>149,99 €</p>
-            
-        </div>
-        <div class="product" onclick="openModal(this)">
-            <img src="assets/images/slider1 (6).jpg" alt="Produit 1" class="product-image">
-            <h3>Produit 1</h3>
-            <p>99,99 €</p>
-            
-        </div>
-        <div class="product" onclick="openModal(this)">
-            <img src="assets/images/slider1 (7).jpg" alt="Produit 2" class="product-image">
-            <h3>Produit 2</h3>
-            <p>149,99 €</p>
-            
-        </div>
-        <div class="product" onclick="openModal(this)">
-            <img src="assets/images/cover1-removebg-preview.png" alt="Produit 1" class="product-image">
-            <h3>Produit 1</h3>
-            <p>99,99 €</p>
-           
-        </div>
-        <div class="product" onclick="openModal(this)">
-            <img src="assets/images/slider1 (2).jpg" alt="Produit 2" class="product-image">
-            <h3>Produit 2</h3>
-            <p>149,99 €</p>
-  
-        </div>
+   <div class="body-new-arrivals">
 
-      
+   
 
-       
-    </div>
-    
-    <!-- Modal -->
-    <div class="modal" id="productModal">
+    <div class="product-grid" id="product-grid"></div>
+    <div class="product-modal" id="product-modal">
         <div class="modal-content">
-            <button class="close-button" onclick="closeModal()">&times;</button>
-            <div class="modal-image-container">
-                <img src="" alt="Produit" class="modal-image" id="modalImage">
-            </div>
-            <div class="modal-details">
-                <h2 class="product-title">Nom du Produit</h2>
-                <div class="product-price">99,99 €</div>
-                <p class="product-description">
-                    collection made of africa
-                </p>
-                <div class="product-specs">
-                    <a href="#" class="buy-btn">Shop Now</a>
-                </div>
-
-                <div class="product-rating">
-                
-                    <div class="rating">
-                        <span class="star" data-value="5">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="1">★</span>
-                    </div>
-                    <p>Note actuelle: <span id="current-rating">0</span>/5</p>
-                </div>
-
-
-            </div>
+            <span class="modal-close" id="modal-close">&times;</span>
+            <img class="modal-image" id="modal-image" src="" alt="Product Image">
+            <h2 id="modal-name"></h2>
+            <p id="modal-description"></p>
+            <p id="modal-price"></p>
+            <button id="modal-add-to-cart" class="add-to-cart">Ajouter au panier</button>
         </div>
     </div>
-    
-    </section>
 
+</div>
 
-<!--
-    <section class="products">
-        <div class="section-title">
-            <h2>New Arrival</h2>
-            <p>Lorem ipsum dolor sit amet conse ctetur</p>
-        </div>
-        <div class="product-grid">
-           
-            <div class="product-card">
-                <span class="tag-new">New</span>
-                <img src="assets/images/product-test.png" alt="Product">
-                <h3>T-Shirt And Jeans</h3>
-                <p class="product-price">
-                   
-                    $60.00
-                </p>
-                <a href="#" class="buy-btn">BUY</a>
-            </div>
-
-            <div class="product-card">
-                <span class="tag-new">New</span>
-                <img src="assets/images/product-test.png" alt="Product">
-                <h3>T-Shirt And Jeans</h3>
-                <p class="product-price">
-                    
-                    $60.00
-                </p>
-                <a href="#" class="buy-btn">BUY</a>
-            </div>
-
-
-            <div class="product-card">
-                <span class="tag-new">New</span>
-                <img src="assets/images/product-test.png" alt="Product">
-                <h3>T-Shirt And Jeans</h3>
-                <p class="product-price">
-                    
-                    $60.00
-                </p>
-                <a href="#" class="buy-btn">BUY</a>
-            </div>
-
-
-            <div class="product-card">
-                <span class="tag-new">New</span>
-                <img src="assets/images/product-test.png" alt="Product">
-                <h3>T-Shirt And Jeans</h3>
-                <p class="product-price">
-                   
-                    $60.00
-                </p>
-                <a href="#" class="buy-btn">BUY</a>
-            </div>
-
-            <div class="product-card">
-                <span class="tag-new">New</span>
-                <img src="assets/images/product-test.png" alt="Product">
-                <h3>T-Shirt And Jeans</h3>
-                <p class="product-price">
-                   
-                    $60.00
-                </p>
-                <a href="#" class="buy-btn">BUY</a>
-            </div>
-
-            <div class="product-card">
-                <span class="tag-new">New</span>
-                <img src="assets/images/product-test.png" alt="Product">
-                <h3>T-Shirt And Jeans</h3>
-                <p class="product-price">
-                   
-                    $60.00
-                </p>
-                <a href="#" class="buy-btn">BUY</a>
-            </div>
-
-          
-
-
-         
-
-            
-        </div>
-    </section>
-
-     Répéter les autres produits de manière similaire -->
+</section>
+   
 
     <section class="best-seller">
         <div class="section-title">

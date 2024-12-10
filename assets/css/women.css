@@ -480,10 +480,10 @@ nav li:hover .dropdown {
    
 }
 .collection-title {
-    font-size: 24px;
+    font-size: 3rem;
     color: #333;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 .products-grid {
     display: flex;

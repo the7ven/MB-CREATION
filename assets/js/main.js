@@ -146,45 +146,112 @@ document.addEventListener('DOMContentLoaded', () => {
  // new arrivals
 
 
+ const products = [
+    {
+        id: 1,
+        name: "Poduit 1",
+        price: 999.99,
+        description: " lorem ipsum dolor samet",
+        image: "/assets/images/cover1-removebg-preview.png"
+    },
+    {
+        id: 2,
+        name: "Produit 2",
+        price: 599.99,
+        description: "lorem ipsum dolor samet",
+        image: "assets/images/IMG_0340_1_-removebg-preview.png"
+    },
+    {
+        id: 3,
+        name: "Produit 3",
+        price: 199.99,
+        description: "lorem ipsum dolor samet",
+        image: "assets/images/slider1 (1).jpg"
+    },
+    {
+        id: 4,
+        name: "Produit 4",
+        price: 249.99,
+        description: "lorem ipsum dolor samet",
+        image: "assets/images/sellers1__1_-removebg-preview.png"
+    },
+    {
+        id: 5,
+        name: "Produit 5",
+        price: 449.99,
+        description: "lorem ipsum dolor samet",
+        image: "assets/images/slider1 (6).jpg"
+    },
+    {
+        id: 6,
+        name: "Produit 6",
+        price: 149.99,
+        description: "lorem ipsum dolor samet",
+        image: "assets/images/slider1__2_-removebg-preview (1).png"
+    }
+];
 
+// DOM Elements
+const productGrid = document.getElementById('product-grid');
+const productModal = document.getElementById('product-modal');
+const modalClose = document.getElementById('modal-close');
+const modalImage = document.getElementById('modal-image');
+const modalName = document.getElementById('modal-name');
+const modalDescription = document.getElementById('modal-description');
+const modalPrice = document.getElementById('modal-price');
+const modalAddToCart = document.getElementById('modal-add-to-cart');
 
-const modal = document.getElementById('productModal');
-const modalImage = document.getElementById('modalImage');
-
-function openModal(productElement) {
-    const productImage = productElement.querySelector('.product-image');
-    const productTitle = productElement.querySelector('h3');
-    const productPrice = productElement.querySelector('p');
-
-    // Mettre à jour le contenu de la modale
-    modalImage.src = productImage.src;
-    document.querySelector('.modal-details .product-title').textContent = productTitle.textContent;
-    document.querySelector('.modal-details .product-price').textContent = productPrice.textContent;
-
-    modal.classList.add('active');
-    // Empêcher le défilement du body
-    document.body.style.overflow = 'hidden';
+// Create Product Card
+function createProductCard(product) {
+    const card = document.createElement('div');
+    card.classList.add('product-card');
+    card.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <div class="product-info">
+            <h3>${product.name}</h3>
+            <p>${product.price} €</p>
+        </div>
+    `;
+    card.addEventListener('click', function() {
+        openProductModal(product);
+    });
+    return card;
 }
 
+// Open Product Modal
+function openProductModal(product) {
+    modalImage.src = product.image;
+    modalName.textContent = product.name;
+    modalDescription.textContent = product.description;
+    modalPrice.textContent = `${product.price} €`;
+    
+    productModal.style.display = 'flex';
+}
+
+// Close Modal
 function closeModal() {
-    modal.classList.remove('active');
-    // Réactiver le défilement du body
-    document.body.style.overflow = 'auto';
+    productModal.style.display = 'none';
 }
 
-// Fermer la modale en cliquant en dehors
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
+// Event Listeners
+modalClose.addEventListener('click', closeModal);
+
+productModal.addEventListener('click', function(event) {
+    if (event.target === productModal) {
         closeModal();
     }
 });
 
-// Fermer la modale avec la touche Echap
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeModal();
-    }
+modalAddToCart.addEventListener('click', function() {
+    alert(modalName.textContent + ' ajouté au panier !');
+    closeModal();
 });
+
+// Populate Grid
+products.forEach(function(product) {
+    productGrid.appendChild(createProductCard(product));
+});
+
 
 
 
@@ -195,38 +262,3 @@ document.addEventListener('keydown', (e) => {
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const ratingContainers = document.querySelectorAll('.rating');
-
-    ratingContainers.forEach(container => {
-        const stars = container.querySelectorAll('.star');
-        const currentRatingDisplay = container.parentElement.querySelector('#current-rating');
-
-        stars.forEach(star => {
-            star.addEventListener('click', function() {
-                const value = parseInt(this.getAttribute('data-value'));
-                
-                // Réinitialiser toutes les étoiles
-                stars.forEach(s => s.classList.remove('selected'));
-                
-                // Sélectionner les étoiles jusqu'à la valeur cliquée
-                stars.forEach(s => {
-                    if (parseInt(s.getAttribute('data-value')) <= value) {
-                        s.classList.add('selected');
-                    }
-                });
-
-                // Mettre à jour l'affichage de la note
-                if (currentRatingDisplay) {
-                    currentRatingDisplay.textContent = value;
-                }
-
-                // Marquer le conteneur comme cliqué
-                container.setAttribute('data-clicked', 'true');
-
-                // Log pour debug et futur envoi au serveur
-                console.log('Note donnée:', value);
-            });
-        });
-    });
-});
