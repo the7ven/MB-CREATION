@@ -331,6 +331,7 @@ nav li:hover .dropdown {
 
 
 .trending{
+  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -347,6 +348,7 @@ nav li:hover .dropdown {
 }
 
 .container {
+    padding-top: 100px;
     display: flex;
     width: 1200px;
     height: 500px;
@@ -400,6 +402,16 @@ nav li:hover .dropdown {
 .image-button:hover {
     background-color: #a08613;
     color: white;
+}
+
+
+.image-button a{
+  text-decoration: none;
+  color: #000;
+}
+
+.image-button a:hover{
+  color: #e8e8e8;
 }
 .main-image-wrapper .image-overlay {
     font-size: 2rem;

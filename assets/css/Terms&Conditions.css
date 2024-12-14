@@ -330,11 +330,11 @@ nav li:hover .dropdown {
 
 
 .container-conditions{
+    padding-top: 150px;
     font-family: Arial, sans-serif;
     line-height: 1.6;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
     background-color: #f4f4f4;
 }
 
@@ -371,14 +371,19 @@ h2 {
 
 
 .faqs-container {
-    max-width: 800px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 40px;
+    background-color: #f4f4f4;
   }
   
   .faq-item {
-    border-bottom: 1px solid #ddd;
-    padding: 20px 0;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
   
   .faq-item h3 {
