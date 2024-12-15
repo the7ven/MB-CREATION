@@ -474,7 +474,7 @@ footer {
     }
 
     .thumbnail img {
-        width: 250px;
+        width: 80%;
         height: 250px;
         object-fit: cover;
         border-radius: 8px;
