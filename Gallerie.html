@@ -105,32 +105,18 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
 
 
 <section class="gallery-body">
-    <div class="gallery">
-        <img src="assets/images/banner (1).png" alt="Image 1" class="thumbnail">
-        <img src="assets/images/gallery (1).jpg" alt="Image 2" class="thumbnail">
-        <img src="assets/images/gallery (10).jpg" alt="Image 3" class="thumbnail">
-        <img src="assets/images/gallery (11).jpg" alt="Image 4" class="thumbnail">
-        <img src="assets/images/gallery (12).jpg" alt="Image 5" class="thumbnail">
-        <img src="assets/images/gallery (13).jpg" alt="Image 6" class="thumbnail">
-        <img src="assets/images/gallery (15).jpg" alt="Image 1" class="thumbnail">
-        <img src="assets/images/gallery (14).jpg" alt="Image 2" class="thumbnail">
-        <img src="assets/images/gallery (16).jpg" alt="Image 3" class="thumbnail">
-        <img src="assets/images/gallery (17).jpg" alt="Image 4" class="thumbnail">
-        <img src="assets/images/gallery (2).jpg" alt="Image 5" class="thumbnail">
-        <img src="assets/images/gallery (5).jpg" alt="Image 6" class="thumbnail">
-        <img src="assets/images/banner (2).png" alt="Image 1" class="thumbnail">
-        <img src="assets/images/gallery (6).jpg" alt="Image 2" class="thumbnail">
-        <img src="assets/images/gallery (7).jpg" alt="Image 3" class="thumbnail">
-        <img src="assets/images/gallery (8).jpg" alt="Image 4" class="thumbnail">
-        <img src="assets/images/gallery (9).jpg" alt="Image 5" class="thumbnail">
-        <img src="assets/images/hero3.png" alt="Image 6" class="thumbnail">
-
-
-    </div>
-
+    <div class="gallery" id="gallery"></div>
+    
     <div id="modal">
-        <span class="close">&times;</span>
-        <img id="modalImage" src="" alt="Image agrandie">
+        <div class="modal-content">
+            <img id="modal-image" class="modal-image" src="" alt="Photo en grand">
+            <h2 id="modal-title"></h2>
+            <div id="star-rating" class="stars"></div>
+            <div class="navigation">
+                <button id="prev-btn" class="btn">Précédent</button>
+                <button id="next-btn" class="btn">Suivant</button>
+            </div>
+        </div>
     </div>
 </section>
 
