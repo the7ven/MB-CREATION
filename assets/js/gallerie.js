@@ -29,77 +29,77 @@ const photos = [
     { 
         id: 1, 
         url: "assets/images/gallery (13).jpg", 
-        title: "Paysage de Montagne" 
+        title: "" 
     },
     { 
         id: 2, 
         url: "assets/images/gallery (12).jpg", 
-        title: "Coucher de Soleil" 
+        title: "" 
     },
     { 
         id: 3, 
         url: "assets/images/gallery (11).jpg", 
-        title: "Océan Paisible" 
+        title: "" 
     },
     { 
         id: 1, 
         url: "assets/images/gallery (10).jpg", 
-        title: "Paysage de Montagne" 
+        title: "" 
     },
     { 
         id: 2, 
         url: "assets/images/gallery (9).jpg", 
-        title: "Coucher de Soleil" 
+        title: "" 
     },
     { 
         id: 3, 
         url: "assets/images/gallery (8).jpg", 
-        title: "Océan Paisible" 
+        title: "" 
     },
     { 
         id: 1, 
         url: "assets/images/gallery (7).jpg", 
-        title: "Paysage de Montagne" 
+        title: "" 
     },
     { 
         id: 2, 
         url: "assets/images/gallery (6).jpg", 
-        title: "Coucher de Soleil" 
+        title: "" 
     },
     { 
         id: 3, 
         url: "assets/images/gallery (5).jpg", 
-        title: "Océan Paisible" 
+        title: "" 
     },
     { 
         id: 1, 
         url: "assets/images/gallery (4).jpg", 
-        title: "Paysage de Montagne" 
+        title: "" 
     },
     { 
         id: 2, 
         url: "assets/images/gallery (3).jpg", 
-        title: "Coucher de Soleil" 
+        title: "" 
     },
     { 
         id: 3, 
         url: "assets/images/gallery (2).jpg", 
-        title: "Océan Paisible" 
+        title: "" 
     },
     { 
         id: 1, 
         url: "assets/images/gallery (1).jpg", 
-        title: "Paysage de Montagne" 
+        title: "" 
     },
     { 
         id: 2, 
         url: "assets/images/trendingpic (2).png", 
-        title: "Coucher de Soleil" 
+        title: "" 
     },
     { 
         id: 3, 
         url: "assets/images/trendingpic (1).png", 
-        title: "Océan Paisible" 
+        title: "" 
     },
 
 ];
