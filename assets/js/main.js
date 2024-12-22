@@ -320,7 +320,7 @@ function showCart() {
 
     // Ajoutez le titre
     const title = document.createElement('h3');
-    title.textContent = 'Votre Panier';
+    title.textContent = 'Votre Sélection';
     cartDropdown.appendChild(title); // Ajoute le titre à la liste déroulante
 
     if (cartItems.length === 0) {
@@ -363,7 +363,7 @@ function showCart() {
     goToCartButton.classList.add('go-to-cart'); // Assurez-vous que cette ligne est présente
     goToCartButton.addEventListener('click', function() {
         // Logique pour rediriger vers la page du panier
-        window.location.href = 'panier.html'; // Remplacez par l'URL de votre page panier
+        window.location.href = '../../panier.html'; // Remplacez par l'URL de votre page panier
     });
     cartDropdown.appendChild(goToCartButton); // Ajoute le bouton à la liste déroulante
 
