@@ -1052,7 +1052,7 @@ img, video {
     background-color: white; /* Couleur de fond */
     border: 1px solid #ccc; /* Bordure */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre */
-    width: 250px; /* Largeur de la liste déroulante */
+    width: 350px; /* Largeur de la liste déroulante */
     z-index: 1000; /* Assurez-vous qu'il est au-dessus des autres éléments */
     padding: 10px; /* Espacement interne */
 }
@@ -1132,6 +1132,18 @@ button.go-to-cart:hover {
 .cart-item-image {
     width: 50px; /* Largeur de l'image */
     height: 50px; /* Hauteur de l'image */
-    border-radius: 5px; /* Bords arrondis */
+    border-radius: 8px; /* Bords arrondis */
     margin-right: 10px; /* Espace entre l'image et le texte */
+}
+
+.remove-item {
+    margin-left: auto; /* Pousse l'icône de suppression à droite */
+    cursor: pointer; /* Curseur en forme de main */
+}
+
+.go-to-cart:disabled {
+    background-color: gray; /* Couleur de fond grise */
+    color: white; /* Couleur du texte blanche */
+    cursor: not-allowed; /* Curseur pour indiquer que le bouton est désactivé */
+    opacity: 0.6; /* Opacité pour indiquer que le bouton est désactivé */
 }

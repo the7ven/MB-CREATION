@@ -244,6 +244,16 @@ productModal.addEventListener('click', function(event) {
 let count = 0; // Initialiser le compteur
 let cartItems = []; // Tableau pour stocker les articles du panier
 
+// Charger le panier depuis le localStorage
+const storedCartItems = localStorage.getItem('cartItems');
+if (storedCartItems) {
+    cartItems = JSON.parse(storedCartItems);
+    count = cartItems.length; // Met à jour le compteur
+    const cartCount = document.getElementById('cart-count'); // Récupère l'élément du compteur
+    cartCount.textContent = count; // Met à jour le texte du compteur
+    cartCount.style.display = count > 0 ? 'block' : 'none'; // Affiche ou masque le compteur
+}
+
 // Fonction pour afficher le toast
 function showToast(message, className = '') {
     const toast = document.getElementById('toast');
@@ -274,7 +284,10 @@ function addToCart(productName, productPrice, productImage) {
 
     // Ajoute l'article au tableau du panier
     cartItems.push({ name: productName, price: productPrice, image: productImage }); // Ajoutez l'image ici
-    
+
+    // Sauvegarde le panier dans le localStorage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
     // Affiche le toast pour confirmation
     showToast(`${productName} ajouté au panier !`); 
 }
@@ -286,6 +299,9 @@ function removeFromCart(index) {
     const cartCount = document.getElementById('cart-count'); // Récupère l'élément du compteur
     cartCount.textContent = count; // Met à jour le texte du compteur
     cartCount.style.display = count > 0 ? 'block' : 'none'; // Masque le compteur si vide
+
+    // Sauvegarde le panier mis à jour dans le localStorage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
 }
 
 // Fonction pour afficher le contenu du panier
@@ -322,7 +338,7 @@ function showCart() {
 
             // Ajoutez le nom et le prix
             const textElement = document.createElement('span');
-            textElement.textContent = `${item.name} - ${item.price}`;
+            textElement.textContent = `${item.name} - ${item.price} €`;
 
             // Ajout de l'icône de suppression
             const removeIcon = document.createElement('i');
@@ -379,6 +395,16 @@ document.addEventListener('DOMContentLoaded', function() {
     let count = 0; // Initialiser le compteur
     let cartItems = []; // Tableau pour stocker les articles du panier
 
+    // Charger le panier depuis le localStorage
+    const storedCartItems = localStorage.getItem('cartItems');
+    if (storedCartItems) {
+        cartItems = JSON.parse(storedCartItems);
+        count = cartItems.length; // Met à jour le compteur
+        const cartCount = document.getElementById('cart-count'); // Récupère l'élément du compteur
+        cartCount.textContent = count; // Met à jour le texte du compteur
+        cartCount.style.display = count > 0 ? 'block' : 'none'; // Affiche ou masque le compteur
+    }
+
     // Fonction pour afficher le toast
     function showToast(message, className = '') {
         const toast = document.getElementById('toast');
@@ -409,7 +435,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Ajoute l'article au tableau du panier
         cartItems.push({ name: productName, price: productPrice, image: productImage }); // Ajoutez l'image ici
-        
+
+        // Sauvegarde le panier dans le localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
         // Affiche le toast pour confirmation
         showToast(`${productName} ajouté au panier !`); 
     }
@@ -421,6 +450,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const cartCount = document.getElementById('cart-count'); // Récupère l'élément du compteur
         cartCount.textContent = count; // Met à jour le texte du compteur
         cartCount.style.display = count > 0 ? 'block' : 'none'; // Masque le compteur si vide
+
+        // Sauvegarde le panier mis à jour dans le localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
     }
 
     // Fonction pour afficher le contenu du panier
@@ -449,7 +481,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const itemElement = document.createElement('div');
                 itemElement.classList.add('cart-item'); // Ajoutez une classe pour le style
 
-                // Créez un élément d'image
+                // Créez un ��lément d'image
                 const imgElement = document.createElement('img');
                 imgElement.src = item.image || '/assets/images/cover1-removebg-preview.png'; // Utilise une image par défaut si l'image est undefined
                 imgElement.alt = item.name; // Texte alternatif pour l'image
