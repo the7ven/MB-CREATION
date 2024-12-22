@@ -1080,3 +1080,58 @@ img, video {
     font-size: 20px; /* Taille de l'icône */
     color: #333; /* Couleur de l'icône */
 }
+
+button.go-to-cart {
+    background-color: yellow; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Bords arrondis */
+    padding: 10px 15px; /* Espacement interne */
+    cursor: pointer; /* Curseur en forme de main */
+    transition: background-color 0.3s ease-in-out; /* Transition pour l'effet hover */
+    margin-top: 10px; /* Ajoute un espacement au-dessus du bouton */
+}
+
+button.go-to-cart:hover {
+    background-color: #e6e600; /* Couleur de fond un peu jaune foncé au survol */
+}
+
+.cart-dropdown {
+    padding: 10px; /* Ajoute un espacement interne au dropdown */
+    background-color: white; /* Couleur de fond du dropdown */
+    border: 1px solid #ccc; /* Bordure autour du dropdown */
+    border-radius: 5px; /* Bords arrondis */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre pour le dropdown */
+}
+
+.cart-dropdown div {
+    margin-bottom: 10px; /* Espace entre chaque produit */
+}
+
+button.go-to-cart {
+    background-color: #FFCD35; /* Couleur de fond */
+    color: black; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Bords arrondis */
+    padding: 10px 15px; /* Espacement interne */
+    cursor: pointer; /* Curseur en forme de main */
+    transition: background-color 0.3s ease-in-out; /* Transition pour l'effet hover */
+    margin-top: 15px; /* Ajoute un espacement au-dessus du bouton */
+}
+
+button.go-to-cart:hover {
+    background-color: #c59e29; /* Couleur de fond un peu jaune foncé au survol */
+}
+
+.cart-item {
+    display: flex; /* Utilise flexbox pour aligner les éléments */
+    align-items: center; /* Centre verticalement les éléments */
+    margin-bottom: 10px; /* Espace entre les produits */
+}
+
+.cart-item-image {
+    width: 50px; /* Largeur de l'image */
+    height: 50px; /* Hauteur de l'image */
+    border-radius: 5px; /* Bords arrondis */
+    margin-right: 10px; /* Espace entre l'image et le texte */
+}

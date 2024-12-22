@@ -244,18 +244,48 @@ productModal.addEventListener('click', function(event) {
 let count = 0; // Initialiser le compteur
 let cartItems = []; // Tableau pour stocker les articles du panier
 
+// Fonction pour afficher le toast
+function showToast(message, className = '') {
+    const toast = document.getElementById('toast');
+    toast.textContent = message; // Met à jour le message du toast
+    toast.className = className; // Applique la classe CSS
+    toast.style.display = 'block'; // Affiche le toast
+
+    // Masque le toast après 3 secondes
+    setTimeout(() => {
+        toast.style.display = 'none';
+    }, 3000);
+}
+
 // Fonction pour ajouter un produit au panier
-function addToCart(productName, productPrice) {
+function addToCart(productName, productPrice, productImage) {
+    // Vérifie si le produit existe déjà dans le panier
+    const existingItem = cartItems.find(item => item.name === productName);
+    if (existingItem) {
+        // Si l'article existe déjà, affiche un message dans le toast
+        showToast(`${productName} existe déjà dans le panier !`, 'toast-error'); // Ajout de la classe pour le toast rouge
+        return; // Sort de la fonction pour ne pas ajouter le produit
+    }
+
     count++; // Incrémente le compteur
     const cartCount = document.getElementById('cart-count'); // Récupère l'élément du compteur
     cartCount.textContent = count; // Met à jour le texte du compteur
     cartCount.style.display = 'block'; // Affiche le compteur
 
     // Ajoute l'article au tableau du panier
-    cartItems.push({ name: productName, price: productPrice });
+    cartItems.push({ name: productName, price: productPrice, image: productImage }); // Ajoutez l'image ici
     
-    // Affiche une alerte pour confirmation
-    alert(`${productName} ajouté au panier !`); 
+    // Affiche le toast pour confirmation
+    showToast(`${productName} ajouté au panier !`); 
+}
+
+// Fonction pour supprimer un produit du panier
+function removeFromCart(index) {
+    cartItems.splice(index, 1); // Supprime l'élément à l'index donné
+    count--; // Décrémente le compteur
+    const cartCount = document.getElementById('cart-count'); // Récupère l'élément du compteur
+    cartCount.textContent = count; // Met à jour le texte du compteur
+    cartCount.style.display = count > 0 ? 'block' : 'none'; // Masque le compteur si vide
 }
 
 // Fonction pour afficher le contenu du panier
@@ -272,15 +302,54 @@ function showCart() {
     });
     cartDropdown.appendChild(closeIcon); // Ajoute l'icône à la liste déroulante
 
+    // Ajoutez le titre
+    const title = document.createElement('h3');
+    title.textContent = 'Votre Panier';
+    cartDropdown.appendChild(title); // Ajoute le titre à la liste déroulante
+
     if (cartItems.length === 0) {
         cartDropdown.innerHTML += '<p>Votre panier est vide.</p>';
     } else {
-        cartItems.forEach(item => {
+        cartItems.forEach((item, index) => {
             const itemElement = document.createElement('div');
-            itemElement.textContent = `${item.name} - ${item.price} €`;
-            cartDropdown.appendChild(itemElement);
+            itemElement.classList.add('cart-item'); // Ajoutez une classe pour le style
+
+            // Créez un élément d'image
+            const imgElement = document.createElement('img');
+            imgElement.src = item.image || '/assets/images/cover1-removebg-preview.png'; // Utilise une image par défaut si l'image est undefined
+            imgElement.alt = item.name; // Texte alternatif pour l'image
+            imgElement.classList.add('cart-item-image'); // Classe pour le style de l'image
+
+            // Ajoutez le nom et le prix
+            const textElement = document.createElement('span');
+            textElement.textContent = `${item.name} - ${item.price}`;
+
+            // Ajout de l'icône de suppression
+            const removeIcon = document.createElement('i');
+            removeIcon.classList.add('fas', 'fa-trash', 'remove-item');
+            removeIcon.style.cursor = 'pointer';
+            removeIcon.addEventListener('click', function() {
+                removeFromCart(index); // Supprime l'article du panier
+                showCart(); // Met à jour l'affichage du panier
+            });
+
+            // Ajoutez l'image, le texte et l'icône de suppression à l'élément produit
+            itemElement.appendChild(imgElement);
+            itemElement.appendChild(textElement);
+            itemElement.appendChild(removeIcon);
+            cartDropdown.appendChild(itemElement); // Ajoute l'élément à la liste déroulante
         });
     }
+
+    // Ajout du bouton "Aller au panier"
+    const goToCartButton = document.createElement('button');
+    goToCartButton.textContent = 'Aller au panier';
+    goToCartButton.classList.add('go-to-cart'); // Assurez-vous que cette ligne est présente
+    goToCartButton.addEventListener('click', function() {
+        // Logique pour rediriger vers la page du panier
+        window.location.href = 'panier.html'; // Remplacez par l'URL de votre page panier
+    });
+    cartDropdown.appendChild(goToCartButton); // Ajoute le bouton à la liste déroulante
 
     cartDropdown.style.display = 'block'; // Affiche le dropdown
 }
@@ -294,7 +363,10 @@ if (modalAddToCart) { // Vérifie si l'élément existe
     modalAddToCart.addEventListener('click', function() {
         const productName = document.getElementById('modal-name').textContent; // Récupère le nom du produit
         const productPrice = document.getElementById('modal-price').textContent; // Récupère le prix du produit
-        addToCart(productName, productPrice); // Appelle la fonction pour ajouter au panier
+        const productImageElement = document.getElementById('modal-image'); // Récupère l'élément image
+        const productImage = productImageElement ? productImageElement.src : '/assets/images/cover1-removebg-preview.png'; // Utilise une image par défaut si l'élément n'existe pas
+
+        addToCart(productName, productPrice, productImage); // Appelle la fonction pour ajouter au panier
     });
 }
 
@@ -307,18 +379,48 @@ document.addEventListener('DOMContentLoaded', function() {
     let count = 0; // Initialiser le compteur
     let cartItems = []; // Tableau pour stocker les articles du panier
 
+    // Fonction pour afficher le toast
+    function showToast(message, className = '') {
+        const toast = document.getElementById('toast');
+        toast.textContent = message; // Met à jour le message du toast
+        toast.className = className; // Applique la classe CSS
+        toast.style.display = 'block'; // Affiche le toast
+
+        // Masque le toast après 3 secondes
+        setTimeout(() => {
+            toast.style.display = 'none';
+        }, 3000);
+    }
+
     // Fonction pour ajouter un produit au panier
-    function addToCart(productName, productPrice) {
+    function addToCart(productName, productPrice, productImage) {
+        // Vérifie si le produit existe déjà dans le panier
+        const existingItem = cartItems.find(item => item.name === productName);
+        if (existingItem) {
+            // Si l'article existe déjà, affiche un message dans le toast
+            showToast(`${productName} existe déjà dans le panier !`, 'toast-error'); // Ajout de la classe pour le toast rouge
+            return; // Sort de la fonction pour ne pas ajouter le produit
+        }
+
         count++; // Incrémente le compteur
         const cartCount = document.getElementById('cart-count'); // Récupère l'élément du compteur
         cartCount.textContent = count; // Met à jour le texte du compteur
         cartCount.style.display = 'block'; // Affiche le compteur
 
         // Ajoute l'article au tableau du panier
-        cartItems.push({ name: productName, price: productPrice });
+        cartItems.push({ name: productName, price: productPrice, image: productImage }); // Ajoutez l'image ici
         
-        // Affiche une alerte pour confirmation
-        alert(`${productName} ajouté au panier !`); 
+        // Affiche le toast pour confirmation
+        showToast(`${productName} ajouté au panier !`); 
+    }
+
+    // Fonction pour supprimer un produit du panier
+    function removeFromCart(index) {
+        cartItems.splice(index, 1); // Supprime l'élément à l'index donné
+        count--; // Décrémente le compteur
+        const cartCount = document.getElementById('cart-count'); // Récupère l'élément du compteur
+        cartCount.textContent = count; // Met à jour le texte du compteur
+        cartCount.style.display = count > 0 ? 'block' : 'none'; // Masque le compteur si vide
     }
 
     // Fonction pour afficher le contenu du panier
@@ -335,15 +437,54 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         cartDropdown.appendChild(closeIcon); // Ajoute l'icône à la liste déroulante
 
+        // Ajoutez le titre
+        const title = document.createElement('h3');
+        title.textContent = 'Votre Panier';
+        cartDropdown.appendChild(title); // Ajoute le titre à la liste déroulante
+
         if (cartItems.length === 0) {
             cartDropdown.innerHTML += '<p>Votre panier est vide.</p>';
         } else {
-            cartItems.forEach(item => {
+            cartItems.forEach((item, index) => {
                 const itemElement = document.createElement('div');
-                itemElement.textContent = `${item.name} - ${item.price} €`;
-                cartDropdown.appendChild(itemElement);
+                itemElement.classList.add('cart-item'); // Ajoutez une classe pour le style
+
+                // Créez un élément d'image
+                const imgElement = document.createElement('img');
+                imgElement.src = item.image || '/assets/images/cover1-removebg-preview.png'; // Utilise une image par défaut si l'image est undefined
+                imgElement.alt = item.name; // Texte alternatif pour l'image
+                imgElement.classList.add('cart-item-image'); // Classe pour le style de l'image
+
+                // Ajoutez le nom et le prix
+                const textElement = document.createElement('span');
+                textElement.textContent = `${item.name} - ${item.price} €`;
+
+                // Ajout de l'icône de suppression
+                const removeIcon = document.createElement('i');
+                removeIcon.classList.add('fas', 'fa-trash', 'remove-item');
+                removeIcon.style.cursor = 'pointer';
+                removeIcon.addEventListener('click', function() {
+                    removeFromCart(index); // Supprime l'article du panier
+                    showCart(); // Met à jour l'affichage du panier
+                });
+
+                // Ajoutez l'image, le texte et l'icône de suppression à l'élément produit
+                itemElement.appendChild(imgElement);
+                itemElement.appendChild(textElement);
+                itemElement.appendChild(removeIcon);
+                cartDropdown.appendChild(itemElement); // Ajoute l'élément à la liste déroulante
             });
         }
+
+        // Ajout du bouton "Aller au panier"
+        const goToCartButton = document.createElement('button');
+        goToCartButton.textContent = 'Aller au panier';
+        goToCartButton.classList.add('go-to-cart'); // Assurez-vous que cette ligne est présente
+        goToCartButton.addEventListener('click', function() {
+            // Logique pour rediriger vers la page du panier
+            window.location.href = 'panier.html'; // Remplacez par l'URL de votre page panier
+        });
+        cartDropdown.appendChild(goToCartButton); // Ajoute le bouton à la liste déroulante
 
         cartDropdown.style.display = 'block'; // Affiche le dropdown
     }
@@ -358,8 +499,20 @@ document.addEventListener('DOMContentLoaded', function() {
         modalAddToCart.addEventListener('click', function() {
             const productName = document.getElementById('modal-name').textContent; // Récupère le nom du produit
             const productPrice = document.getElementById('modal-price').textContent; // Récupère le prix du produit
-            addToCart(productName, productPrice); // Appelle la fonction pour ajouter au panier
+            const productImageElement = document.getElementById('modal-image'); // Récupère l'élément image
+            const productImage = productImageElement ? productImageElement.src : '/assets/images/cover1-removebg-preview.png'; // Utilise une image par défaut si l'élément n'existe pas
+
+            addToCart(productName, productPrice, productImage); // Appelle la fonction pour ajouter au panier
         });
     }
+
+    // Fermer le dropdown si l'utilisateur clique en dehors
+    document.addEventListener('click', function(event) {
+        const cartDropdown = document.querySelector('.cart-dropdown');
+        const isClickInside = cartDropdown.contains(event.target) || cartIcon.contains(event.target);
+        if (!isClickInside) {
+            cartDropdown.style.display = 'none'; // Ferme le dropdown
+        }
+    });
 });
 
