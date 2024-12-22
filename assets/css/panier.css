@@ -1,0 +1,5 @@
+.cart-item-image {
+    max-width: 100px; /* Limite la largeur maximale de l'image */
+    height: auto; /* Maintient le ratio d'aspect de l'image */
+    margin-right: 10px; /* Ajoute un espacement à droite de l'image */
+}
