@@ -25,9 +25,9 @@ body {
 
 .btn {
     text-decoration: none;
-    color: #e6bf42;
+    color: #FCDC12;
     font-size: 25px;
-    border: 2px solid #e6bf42;
+    border: 2px solid #FCDC12;
     padding: 15px 25px;
     border-radius: 30px;
     transition: all ease-in-out .5s;
@@ -36,7 +36,7 @@ body {
 
 .btn:hover {
     color: black;
-    background-color: #e6bf42;
+    background-color: #FCDC12;
 }
 
 @keyframes fadeIn {

@@ -243,10 +243,17 @@ footer {
   
   .subscribe-btn {
     padding: 10px 20px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    border: none;
+    background-color: transparent;
+    color: #ccad24;
+    border: 2px solid #ccad24;
+    border-radius: 25px;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  
+  .subscribe-btn:hover {
+    background-color: #ccad24;
+    color: white;
   }
   
   .socials a {

@@ -20,6 +20,9 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
     <div class="top-banner">
         Free delivery on order over $200
     </div>
+    <div id="toast" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #333; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
+        Article ajouté au panier !
+    </div>
 
     <header class="main-header">
 
@@ -99,7 +102,13 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
         <div class="header-icons">
             <i class="fas fa-search"></i>
             <i class="fas fa-heart"></i>
-            <i class="fas fa-shopping-cart"></i>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+            <div class="cart-dropdown" style="display: none;">
+                <i class="fas fa-times close-cart" style="cursor: pointer;"></i>
+            </div>
         </div>
     </header>
 
@@ -112,7 +121,7 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
                     <h1>stylish  <br>men’s design
                     </h1>
                     <p></p>
-                   
+                    <a href="#" class="shop-now-btn">SHOP NOW</a>
                 </div>
                 <img src="assets/images/sellers1__3_-removebg-preview.png" alt="Fashion Model 1" width="500">
             </div>
@@ -120,7 +129,7 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
                 <div class="hero-content">
                     <h1>New Kid's<br>Collection</h1>
                     <p>Special Offers & Discounts</p>
-                    
+                    <a href="#" class="shop-now-btn">DISCOVER NOW</a>
                 </div>
                 <img src="assets/images/kids (2).png" alt="Fashion Model 2">
             </div>
@@ -128,7 +137,7 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
                 <div class="hero-content">
                     <h1>Premium<br>Fabric</h1>
                     <p>Best Deals of the Season</p>
-                    
+                    <a href="#" class="shop-now-btn">EXPLORE NOW</a>
                 </div>
                 <img src="assets/images/IMG_0340_1_-removebg-preview.png" alt="Fashion Model 3" width="360">
             </div>
@@ -236,7 +245,7 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
         <div class="carrousel-content">
             <h1 class="carrousel-title">Profitez de nos reductions</h1>
             <p class="carrousel-subtitle">Des produits uniques  a des prix imbattables</p>
-            <a href="trending.html" class="btn">Explore</a>
+            <a href="" class="btn">Explore</a>
         </div>
     </div>
 
@@ -246,7 +255,7 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
         <div class="carrousel-content">
             <h1 class="carrousel-title">Profitez de nos reductions</h1>
             <p class="carrousel-subtitle">Des produits uniques  a des prix imbattables</p>
-            <a href="trending.html" class="btn">Explore</a>
+            <a href="" class="btn">Explore</a>
         </div>
     </div>
 
@@ -256,7 +265,7 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
         <div class="carrousel-content">
             <h1 class="carrousel-title">Profitez de nos offres</h1>
             <p class="carrousel-subtitle">Des produits uniques  a des prix imbattables</p>
-            <a href="trending.html" class="btn">Explore</a>
+            <a href="" class="btn">Explore</a>
         </div>
     </div>
    
