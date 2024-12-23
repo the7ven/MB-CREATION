@@ -130,15 +130,44 @@ document.querySelector('nav').classList.remove('active');
 
 let cartItems = []; // Déclaration de cartItems au niveau global
 
+// Fonction pour afficher le toast
+function showToast(message, className = '') {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.className = className;
+    toast.style.display = 'block';
+
+    setTimeout(() => {
+        toast.style.display = 'none';
+    }, 3000);
+}
+
+// Fonction pour mettre à jour le compteur d'articles
+function updateCartCount() {
+    const cartCountElement = document.getElementById('cart-count');
+    cartCountElement.textContent = cartItems.length;
+    cartCountElement.style.display = cartItems.length > 0 ? 'block' : 'none';
+}
+
+// Fonction pour ajouter un produit au panier
+function addToCart(productName, productPrice, productImage) {
+    const existingItem = cartItems.find(item => item.name === productName);
+    if (existingItem) {
+        showToast(`${productName} existe déjà dans le panier !`, 'toast-error');
+        return;
+    }
+
+    cartItems.push({ name: productName, price: productPrice, image: productImage });
+    localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Sauvegarde dans le localStorage
+    updateCartCount();
+    showToast(`${productName} ajouté au panier !`);
+}
+
 // Fonction pour supprimer un article du panier
 function removeFromCart(index) {
-    // Supprime l'article du tableau cartItems
     cartItems.splice(index, 1);
-
-    // Met à jour le localStorage
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
-    // Met à jour l'affichage du panier
+    localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Sauvegarde dans le localStorage
+    updateCartCount();
     showCart();
 }
 
@@ -179,7 +208,7 @@ cartDropdown.appendChild(title);
 
             // Ajoutez le nom et le prix
             const textElement = document.createElement('span');
-            textElement.textContent = `${item.name} - ${item.price} €`;
+            textElement.textContent = `${item.name} - ${item.price} `;
 
             // Ajout de l'icône de suppression
             const removeIcon = document.createElement('i');
@@ -225,6 +254,28 @@ document.addEventListener('click', function(event) {
 
     if (!isClickInsideDropdown && !isClickOnCartIcon) {
         cartDropdown.style.display = 'none'; // Ferme le dropdown
+    }
+});
+
+// Écouteur d'événements pour chaque bouton "Add To Cart"
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function() {
+        const productCard = this.closest('.products-card');
+        const productName = productCard.querySelector('.product-name').textContent;
+        const productPrice = productCard.querySelector('.product-price').textContent;
+        const productImage = productCard.querySelector('.products-image').src;
+
+        addToCart(productName, productPrice, productImage);
+    });
+});
+
+// Récupérer les articles du localStorage lors du chargement de la page
+document.addEventListener('DOMContentLoaded', () => {
+    const storedCartItems = localStorage.getItem('cartItems');
+    if (storedCartItems) {
+        cartItems = JSON.parse(storedCartItems); // Met à jour cartItems avec les articles du localStorage
+        updateCartCount(); // Met à jour le compteur d'articles
+        showCart(); // Affiche le contenu du panier si nécessaire
     }
 });
 
