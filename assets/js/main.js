@@ -481,7 +481,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const itemElement = document.createElement('div');
                 itemElement.classList.add('cart-item'); // Ajoutez une classe pour le style
 
-                // Créez un ��lément d'image
+                // Créez un élément d'image
                 const imgElement = document.createElement('img');
                 imgElement.src = item.image || '/assets/images/cover1-removebg-preview.png'; // Utilise une image par défaut si l'image est undefined
                 imgElement.alt = item.name; // Texte alternatif pour l'image
