@@ -797,3 +797,127 @@ footer {
 ::-webkit-scrollbar-thumb:hover {
     background: #ccad24;  /* Couleur au survol */
 }
+
+.cart-icon {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px; /* Ajustez la position selon vos besoins */
+    right: -10px; /* Ajustez la position selon vos besoins */
+    background-color: red; /* Couleur du badge */
+    color: white; /* Couleur du texte */
+    border-radius: 50%; /* Bords arrondis */
+    padding: 2px 6px; /* Espacement autour du texte */
+    font-size: 12px; /* Taille de la police */
+    display: none; /* Masqué par défaut */
+}
+
+.cart-dropdown {
+    display: none; /* Masqué par défaut */
+    position: absolute;
+    top: 30px; /* Ajustez selon la hauteur de l'icône */
+    right: 0;
+    background-color: white; /* Couleur de fond */
+    border: 1px solid #ccc; /* Bordure */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre */
+    width: 350px; /* Largeur de la liste déroulante */
+    z-index: 1000; /* Assurez-vous qu'il est au-dessus des autres éléments */
+    padding: 10px; /* Espacement interne */
+}
+
+.cart-dropdown h3 {
+    margin: 0 0 10px; /* Marge pour le titre */
+}
+
+.cart-dropdown ul {
+    list-style: none; /* Pas de puces */
+    padding: 0; /* Pas de padding */
+    margin: 0; /* Pas de marge */
+}
+
+.cart-dropdown li {
+    display: flex; /* Flex pour aligner les éléments */
+    justify-content: space-between; /* Espace entre le nom et le prix */
+    margin-bottom: 10px; /* Marge entre les articles */
+}
+
+.close-cart {
+    position: absolute;
+    top: 10px; /* Ajustez la position selon vos besoins */
+    right: 10px; /* Ajustez la position selon vos besoins */
+    font-size: 20px; /* Taille de l'icône */
+    color: #333; /* Couleur de l'icône */
+}
+
+button.go-to-cart {
+    width: 100%; /* Prend toute la largeur disponible */
+    padding: 10px; /* Espacement interne pour le bouton */
+    background-color: #007bff; /* Couleur de fond par défaut */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Bords arrondis */
+    cursor: pointer; /* Curseur en forme de main */
+    transition: background-color 0.3s; /* Transition pour la couleur de fond */
+}
+
+button.go-to-cart:disabled {
+    background-color: gray; /* Couleur de fond grise */
+    color: white; /* Couleur du texte blanche */
+    cursor: not-allowed; /* Curseur pour indiquer que le bouton est désactivé */
+    opacity: 0.6; /* Opacité pour indiquer que le bouton est désactivé */
+}
+
+.cart-dropdown {
+    padding: 10px; /* Ajoute un espacement interne au dropdown */
+    background-color: white; /* Couleur de fond du dropdown */
+    border: 1px solid #ccc; /* Bordure autour du dropdown */
+    border-radius: 5px; /* Bords arrondis */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre pour le dropdown */
+}
+
+.cart-dropdown div {
+    margin-bottom: 10px; /* Espace entre chaque produit */
+}
+
+button.go-to-cart {
+    background-color: #FFCD35; /* Couleur de fond */
+    color: black; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Bords arrondis */
+    padding: 10px 15px; /* Espacement interne */
+    cursor: pointer; /* Curseur en forme de main */
+    transition: background-color 0.3s ease-in-out; /* Transition pour l'effet hover */
+    margin-top: 15px; /* Ajoute un espacement au-dessus du bouton */
+}
+
+button.go-to-cart:hover {
+    background-color: #c59e29; /* Couleur de fond un peu jaune foncé au survol */
+}
+
+.cart-item {
+    display: flex; /* Utilise flexbox pour aligner les éléments */
+    align-items: center; /* Centre verticalement les éléments */
+    margin-bottom: 10px; /* Espace entre les produits */
+}
+
+.cart-item-image {
+    width: 50px; /* Largeur de l'image */
+    height: 50px; /* Hauteur de l'image */
+    border-radius: 8px; /* Bords arrondis */
+    margin-right: 10px; /* Espace entre l'image et le texte */
+}
+
+.remove-item {
+    margin-left: auto; /* Pousse l'icône de suppression à droite */
+    cursor: pointer; /* Curseur en forme de main */
+}
+
+.go-to-cart:disabled {
+    background-color: gray; /* Couleur de fond grise */
+    color: white; /* Couleur du texte blanche */
+    cursor: not-allowed; /* Curseur pour indiquer que le bouton est désactivé */
+    opacity: 0.6; /* Opacité pour indiquer que le bouton est désactivé */
+}

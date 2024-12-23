@@ -222,7 +222,7 @@ function openProductModal(product) {
     modalImage.src = product.image;
     modalName.textContent = product.name;
     modalDescription.textContent = product.description;
-    modalPrice.textContent = `${product.price} €`;
+    modalPrice.textContent = `${product.price}`;
     
     productModal.style.display = 'flex';
 }
@@ -338,7 +338,7 @@ function showCart() {
 
             // Ajoutez le nom et le prix
             const textElement = document.createElement('span');
-            textElement.textContent = `${item.name} - ${item.price} €`;
+            textElement.textContent = `${item.name} - ${item.price}`;
 
             // Ajout de l'icône de suppression
             const removeIcon = document.createElement('i');
@@ -481,7 +481,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const itemElement = document.createElement('div');
                 itemElement.classList.add('cart-item'); // Ajoutez une classe pour le style
 
-                // Créez un ��lément d'image
+                // Créez un élément d'image
                 const imgElement = document.createElement('img');
                 imgElement.src = item.image || '/assets/images/cover1-removebg-preview.png'; // Utilise une image par défaut si l'image est undefined
                 imgElement.alt = item.name; // Texte alternatif pour l'image
@@ -489,7 +489,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Ajoutez le nom et le prix
                 const textElement = document.createElement('span');
-                textElement.textContent = `${item.name} - ${item.price} €`;
+                textElement.textContent = `${item.name} - ${item.price}`;
 
                 // Ajout de l'icône de suppression
                 const removeIcon = document.createElement('i');

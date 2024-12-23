@@ -22,6 +22,9 @@
   <div class="top-banner">
     Free delivery on order over $200
 </div>
+<div id="toast" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #333; color: white; padding: 10px; border-radius: 5px; z-index: 1000;"></div>
+    Article ajouté au panier !
+</div>
 
 <header class="main-header">
 
@@ -101,7 +104,13 @@
     <div class="header-icons">
         <i class="fas fa-search"></i>
         <i class="fas fa-heart"></i>
-        <i class="fas fa-shopping-cart"></i>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cart-count">0</span>
+        </div>
+        <div class="cart-dropdown" style="display: none;">
+            <i class="fas fa-times close-cart" style="cursor: pointer;"></i>
+        </div>
     </div>
 </header>
 
@@ -290,6 +299,7 @@
 
 
 <script src="assets/js/trending.js"></script>
+
     
   </body>
 

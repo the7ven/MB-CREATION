@@ -73,3 +73,4 @@ document.addEventListener('DOMContentLoaded', function() {
         cartItemsContainer.innerHTML = '<p>Votre panier est vide.</p>'; // Si aucun article n'est trouvé
     }
 });
+
