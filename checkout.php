@@ -32,6 +32,7 @@ try {
     $checkout_session = \Stripe\Checkout\Session::create([
         'line_items' => $line_items,
         'mode' => 'payment',
+        'payment_method_types' => ['card'], 
         'billing_address_collection' => 'required',
         'shipping_address_collection' => ['allowed_countries' => ['US', 'FR', 'DE'],],
         'success_url' => 'https://google.com',
