@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const cartItemsContainer = document.getElementById('cart-items-container');
+    const totalElement = document.getElementById('total-price'); // Élément pour afficher le total
     const storedCartItems = localStorage.getItem('cartItems');
 
     if (storedCartItems) {
@@ -8,9 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Vérifie si le panier est vide
         if (cartItems.length === 0) {
             cartItemsContainer.innerHTML = '<p>Votre panier est vide.</p>';
+            totalElement.textContent = 'Total : 0 €'; // Affiche le total
         } else {
             // Affiche chaque article dans le panier
-            cartItems.forEach(item => {
+            cartItems.forEach((item, index) => {
                 const itemElement = document.createElement('div');
                 itemElement.classList.add('cart-item'); // Ajoutez une classe pour le style
 
@@ -22,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Ajoutez le nom et le prix
                 const textElement = document.createElement('span');
-                textElement.textContent = `${item.name} - ${item.price} `;
+                textElement.textContent = `${item.name} - ${item.price} €`;
 
                 // Créez un conteneur pour la quantité
                 const quantityContainer = document.createElement('div');
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     let quantity = parseInt(quantityInput.value);
                     if (quantity > 1) {
                         quantityInput.value = quantity - 1; // Diminue la quantité
+                        updateTotal(cartItems); // Met à jour le total
                     }
                 });
 
@@ -46,6 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 quantityInput.value = item.quantity || 1; // Définit la quantité par défaut à 1
                 quantityInput.min = 1; // Empêche les valeurs négatives
                 quantityInput.classList.add('quantity-input');
+                quantityInput.setAttribute('data-name', item.name); // Ajoute un attribut pour lier le nom
+                quantityInput.addEventListener('change', () => {
+                    updateTotal(cartItems); // Met à jour le total
+                });
 
                 // Bouton pour augmenter la quantité
                 const increaseButton = document.createElement('button');
@@ -55,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const quantityInput = quantityContainer.querySelector('input');
                     let quantity = parseInt(quantityInput.value);
                     quantityInput.value = quantity + 1; // Augmente la quantité
+                    updateTotal(cartItems); // Met à jour le total
                 });
 
                 // Ajoutez les boutons et le champ de saisie au conteneur de quantité
@@ -62,15 +70,56 @@ document.addEventListener('DOMContentLoaded', function() {
                 quantityContainer.appendChild(quantityInput);
                 quantityContainer.appendChild(increaseButton);
 
-                // Ajoutez l'image, le texte et le conteneur de quantité à l'élément produit
+                // Créer le bouton de suppression
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Supprimer';
+                removeButton.classList.add('remove-button');
+                removeButton.addEventListener('click', () => {
+                    removeItemFromCart(index); // Appelle la fonction pour supprimer l'article
+                });
+
+                // Ajoutez l'image, le texte, le conteneur de quantité et le bouton de suppression à l'élément produit
                 itemElement.appendChild(imgElement);
                 itemElement.appendChild(textElement);
                 itemElement.appendChild(quantityContainer);
+                itemElement.appendChild(removeButton); // Ajoute le bouton de suppression
                 cartItemsContainer.appendChild(itemElement); // Ajoute l'élément à la liste des articles du panier
             });
+
+            updateTotal(cartItems); // Calcule le total initial
         }
     } else {
         cartItemsContainer.innerHTML = '<p>Votre panier est vide.</p>'; // Si aucun article n'est trouvé
+        totalElement.textContent = 'Total : 0 €'; // Affiche le total
     }
 });
 
+// Fonction pour mettre à jour le total du panier
+function updateTotal(cartItems) {
+    const totalElement = document.getElementById('total-price');
+    let total = 0;
+
+    cartItems.forEach(item => {
+        const quantityInput = document.querySelector(`input[data-name="${item.name}"]`);
+        const quantity = parseInt(quantityInput.value);
+        total += item.price * quantity; // Calcule le total
+    });
+
+    totalElement.textContent = `Total : ${total} €`; // Affiche le total
+}
+
+// Fonction pour supprimer un article du panier
+function removeItemFromCart(index) {
+    const storedCartItems = localStorage.getItem('cartItems');
+    let cartItems = [];
+    if (storedCartItems) {
+        cartItems = JSON.parse(storedCartItems); // Convertir en tableau d'objets
+    }
+
+    // Supprimer l'article du tableau
+    cartItems.splice(index, 1);
+    localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Mettre à jour le localStorage
+
+    // Rafraîchir l'affichage du panier
+    location.reload(); // Recharge la page pour mettre à jour l'affichage
+}
