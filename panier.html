@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panier</title>
     <link rel="stylesheet" href="assets/css/panier.css">
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
     <h1>Votre Panier</h1>
     <div id="cart-items-container"></div>
+    <div id="total-price">Total : 0 €</div>
     <button id="checkout-button">Passer à la caisse</button>
     
+
     <script src="assets/js/panier.js"></script>
+    <script src="./stripe.js"></script>
+
 
 </body>
 </html>
