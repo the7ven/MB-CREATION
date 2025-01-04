@@ -23,7 +23,16 @@ document.getElementById("checkout-button").addEventListener("click", function ()
         },
         body: JSON.stringify({ cartItems })
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text(); // Change to text to log the raw response
+    })
+    .then(text => {
+        console.log('Raw response:', text); // Log the raw response
+        return JSON.parse(text); // Manually parse the JSON
+    })
     .then(session => stripe.redirectToCheckout({ sessionId: session.id }))
     .catch(error => console.error("Erreur :", error));
 });

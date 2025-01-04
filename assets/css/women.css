@@ -810,7 +810,7 @@ footer {
     position: absolute;
     top: -5px; /* Ajustez la position selon vos besoins */
     right: -10px; /* Ajustez la position selon vos besoins */
-    background-color: #ccad24; /* Couleur du badge */
+    background-color: #FFCD35; /* Couleur du badge */
     color: white; /* Couleur du texte */
     border-radius: 50%; /* Bords arrondis */
     padding: 2px 6px; /* Espacement autour du texte */

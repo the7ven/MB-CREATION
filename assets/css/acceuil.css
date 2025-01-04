@@ -1310,7 +1310,7 @@ button.go-to-cart {
 }
 
 button.go-to-cart:hover {
-    background-color: #FFCD35; /* Couleur de fond un peu jaune foncé au survol */
+    background-color: #c59e29; /* Couleur de fond un peu jaune foncé au survol */
 }
 
 .cart-item {
