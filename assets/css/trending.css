@@ -513,12 +513,13 @@ nav li:hover .dropdown {
     font-weight: bold;
 }
 .product-price {
-    color: #007bff;
+    color: #FFCD35;
+    font-weight: bold;
     font-size: 18px;
     margin-bottom: 10px;
 }
 .add-to-cart {
-    background-color:#ccad24 ;
+    background-color:#FFCD35 ;
     color: white;
     border: none;
     padding: 10px;
@@ -528,7 +529,7 @@ nav li:hover .dropdown {
     transition: background-color 0.3s ease;
 }
 .add-to-cart:hover {
-    background-color: #218838;
+    background-color: #a88723;
 }
 
 
@@ -643,7 +644,7 @@ footer {
   position: absolute;
   top: -5px; /* Ajustez la position selon vos besoins */
   right: -10px; /* Ajustez la position selon vos besoins */
-  background-color: red; /* Couleur du badge */
+  background-color: #FFCD35; /* Couleur du badge */
   color: white; /* Couleur du texte */
   border-radius: 50%;
   padding: 2px 6px; /* Espacement autour du texte */
@@ -732,7 +733,7 @@ button.go-to-cart {
 }
 
 button.go-to-cart:hover {
-  background-color: #c59e29; /* Couleur de fond un peu jaune foncé au survol */
+  background-color: #FFCD35; /* Couleur de fond un peu jaune foncé au survol */
 }
 
 .cart-item {
@@ -758,5 +759,18 @@ button.go-to-cart:hover {
   color: white; /* Couleur du texte blanche */
   cursor: not-allowed; /* Curseur pour indiquer que le bouton est désactivé */
   opacity: 0.6; /* Opacité pour indiquer que le bouton est désactivé */
+}
+
+.product-modal {
+    display: none; /* Assurez-vous que ce style est changé en 'flex' dans le JS */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
