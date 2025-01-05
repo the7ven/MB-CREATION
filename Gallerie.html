@@ -99,7 +99,16 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
         <div class="header-icons">
             <i class="fas fa-search"></i>
             <i class="fas fa-heart"></i>
-            <i class="fas fa-shopping-cart"></i>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+                <div class="cart-dropdown">
+                    <span class="close-cart">&times;</span>
+                    <h3>Panier</h3>
+                    <div id="cart-items"></div>
+                    <button class="go-to-cart" disabled>Voir le panier</button>
+                </div>
+            </div>
         </div>
     </header>
 
