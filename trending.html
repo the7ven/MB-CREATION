@@ -8,11 +8,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..
-  800&family=Kaushan+Script&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playwrite+GB+S:ital,
-  wght@0,100..400;1,100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,
-  700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&
-  family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   
   <link rel="stylesheet" href="assets/css/trending.css">
@@ -21,6 +17,9 @@
   <!-- Header -->
   <div class="top-banner">
     Free delivery on order over $200
+</div>
+<div id="toast" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #333; color: white; padding: 10px; border-radius: 5px; z-index: 1000;"></div>
+    Article ajouté au panier !
 </div>
 
 <header class="main-header">
@@ -90,18 +89,20 @@
                     <li><a href="Terms&Conditions.html"> FAQ , Terms & Conditions</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="#">MB Fondation</a>
-               
-            </li>
-            <li><a href="Gallerie.html">Shooting</a></li>
+           
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
     <div class="header-icons">
         <i class="fas fa-search"></i>
         <i class="fas fa-heart"></i>
-        <i class="fas fa-shopping-cart"></i>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cart-count">0</span>
+        </div>
+        <div class="cart-dropdown" style="display: none;">
+            <i class="fas fa-times close-cart" style="cursor: pointer;"></i>
+        </div>
     </div>
 </header>
 
@@ -290,6 +291,7 @@
 
 
 <script src="assets/js/trending.js"></script>
+
     
   </body>
 

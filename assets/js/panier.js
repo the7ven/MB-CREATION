@@ -1,34 +1,41 @@
 document.addEventListener('DOMContentLoaded', function() {
     const cartItemsContainer = document.getElementById('cart-items-container');
+    const totalElement = document.getElementById('total-price');
     const storedCartItems = localStorage.getItem('cartItems');
 
     if (storedCartItems) {
-        const cartItems = JSON.parse(storedCartItems); // Convertit la chaîne JSON en tableau d'objets
+        const cartItems = JSON.parse(storedCartItems);
 
-        // Vérifie si le panier est vide
         if (cartItems.length === 0) {
             cartItemsContainer.innerHTML = '<p>Votre panier est vide.</p>';
+            totalElement.textContent = 'Total : 0 €';
         } else {
-            // Affiche chaque article dans le panier
-            cartItems.forEach(item => {
+            cartItems.forEach((item, index) => {
                 const itemElement = document.createElement('div');
-                itemElement.classList.add('cart-item'); // Ajoutez une classe pour le style
+                itemElement.classList.add('cart-item');
 
-                // Créez un élément d'image
                 const imgElement = document.createElement('img');
-                imgElement.src = item.image || '/assets/images/cover1-removebg-preview.png'; // Utilise une image par défaut si l'image est undefined
-                imgElement.alt = item.name; // Texte alternatif pour l'image
-                imgElement.classList.add('cart-item-image'); // Classe pour le style de l'image
+                imgElement.src = item.image || '/assets/images/cover1-removebg-preview.png';
+                imgElement.alt = item.name;
+                imgElement.classList.add('cart-item-image');
 
-                // Ajoutez le nom et le prix
-                const textElement = document.createElement('span');
-                textElement.textContent = `${item.name} - ${item.price} `;
+                const detailsElement = document.createElement('div');
+                detailsElement.classList.add('cart-item-details');
 
-                // Créez un conteneur pour la quantité
+                const nameElement = document.createElement('span');
+                nameElement.classList.add('cart-item-name');
+                nameElement.textContent = item.name;
+
+                const priceElement = document.createElement('span');
+                priceElement.classList.add('cart-item-price');
+                priceElement.textContent = `${item.price} €`;
+
+                detailsElement.appendChild(nameElement);
+                detailsElement.appendChild(priceElement);
+
                 const quantityContainer = document.createElement('div');
                 quantityContainer.classList.add('quantity-container');
 
-                // Bouton pour diminuer la quantité
                 const decreaseButton = document.createElement('button');
                 decreaseButton.textContent = '-';
                 decreaseButton.classList.add('quantity-button');
@@ -36,40 +43,108 @@ document.addEventListener('DOMContentLoaded', function() {
                     const quantityInput = quantityContainer.querySelector('input');
                     let quantity = parseInt(quantityInput.value);
                     if (quantity > 1) {
-                        quantityInput.value = quantity - 1; // Diminue la quantité
+                        quantityInput.value = quantity - 1;
+                        updateTotal(cartItems);
                     }
                 });
 
-                // Champ de saisie pour la quantité
                 const quantityInput = document.createElement('input');
                 quantityInput.type = 'number';
-                quantityInput.value = item.quantity || 1; // Définit la quantité par défaut à 1
-                quantityInput.min = 1; // Empêche les valeurs négatives
+                quantityInput.value = item.quantity || 1;
+                quantityInput.min = 1;
                 quantityInput.classList.add('quantity-input');
+                quantityInput.setAttribute('data-name', item.name);
+                quantityInput.addEventListener('change', () => {
+                    updateTotal(cartItems);
+                });
 
-                // Bouton pour augmenter la quantité
                 const increaseButton = document.createElement('button');
                 increaseButton.textContent = '+';
                 increaseButton.classList.add('quantity-button');
                 increaseButton.addEventListener('click', () => {
                     const quantityInput = quantityContainer.querySelector('input');
                     let quantity = parseInt(quantityInput.value);
-                    quantityInput.value = quantity + 1; // Augmente la quantité
+                    quantityInput.value = quantity + 1;
+                    updateTotal(cartItems);
                 });
 
-                // Ajoutez les boutons et le champ de saisie au conteneur de quantité
                 quantityContainer.appendChild(decreaseButton);
                 quantityContainer.appendChild(quantityInput);
                 quantityContainer.appendChild(increaseButton);
 
-                // Ajoutez l'image, le texte et le conteneur de quantité à l'élément produit
+                const removeButton = document.createElement('button');
+                removeButton.innerHTML = '<i class="fas fa-times"></i>';
+                removeButton.classList.add('remove-button');
+                removeButton.addEventListener('click', () => {
+                    removeItemFromCart(index);
+                });
+
                 itemElement.appendChild(imgElement);
-                itemElement.appendChild(textElement);
+                itemElement.appendChild(detailsElement);
                 itemElement.appendChild(quantityContainer);
-                cartItemsContainer.appendChild(itemElement); // Ajoute l'élément à la liste des articles du panier
+                itemElement.appendChild(removeButton);
+                cartItemsContainer.appendChild(itemElement);
             });
+
+            updateTotal(cartItems);
         }
     } else {
-        cartItemsContainer.innerHTML = '<p>Votre panier est vide.</p>'; // Si aucun article n'est trouvé
+        cartItemsContainer.innerHTML = '<p>Votre panier est vide.</p>';
+        totalElement.textContent = 'Total : 0 €';
+    }
+});
+
+function updateTotal(cartItems) {
+    const totalElement = document.getElementById('total-price');
+    let total = 0;
+
+    cartItems.forEach(item => {
+        const quantityInput = document.querySelector(`input[data-name="${item.name}"]`);
+        const quantity = parseInt(quantityInput.value);
+        const price = parseFloat(item.price);
+
+        if (!isNaN(quantity) && !isNaN(price)) {
+            total += price * quantity;
+        }
+    });
+
+    totalElement.textContent = `Total : ${total.toFixed(2)} €`;
+}
+
+function removeItemFromCart(index) {
+    const storedCartItems = localStorage.getItem('cartItems');
+    let cartItems = [];
+    if (storedCartItems) {
+        cartItems = JSON.parse(storedCartItems);
+    }
+
+    cartItems.splice(index, 1);
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    location.reload();
+}
+
+
+// Gestion des sous-menus sur mobile
+
+document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+    document.querySelector('nav').classList.toggle('active');
+    });
+
+
+
+document.querySelectorAll('.has-dropdown').forEach(item => {
+    item.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            this.parentElement.classList.toggle('active');
+        }
+    });
+});
+
+// Fermeture du menu au clic en dehors
+document.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768 && !e.target.closest('nav') && !e.target.closest('.mobile-menu-btn')) {
+        document.querySelector('nav').classList.remove('active');
     }
 });

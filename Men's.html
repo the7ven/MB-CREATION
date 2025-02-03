@@ -8,11 +8,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..
-  800&family=Kaushan+Script&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playwrite+GB+S:ital,
-  wght@0,100..400;1,100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,
-  700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&
-  family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Kaushan+Script&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="assets/css/men.css">
 </head>
@@ -20,6 +16,9 @@
   <!-- Header -->
   <div class="top-banner">
     Free delivery on order over $200
+</div>
+<div id="toast" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #333; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
+    Article ajouté au panier !
 </div>
 
 <header class="main-header">
@@ -88,18 +87,20 @@
                     <li><a href="Terms&Conditions.html"> FAQ , Terms & Conditions</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="#">MB Fondation</a>
-               
-            </li>
-            <li><a href="Gallerie.html">Shooting</a></li>
+            
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
     <div class="header-icons">
         <i class="fas fa-search"></i>
         <i class="fas fa-heart"></i>
-        <i class="fas fa-shopping-cart"></i>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cart-count">0</span>
+        </div>
+        <div class="cart-dropdown" style="display: none;">
+            <i class="fas fa-times close-cart" style="cursor: pointer;"></i>
+        </div>
     </div>
 </header>
 
@@ -196,14 +197,14 @@
         <div class="products-grid">
             <div class="products-card">
                 <img src="assets/images/banner (1).png" alt="Produit 1" class="products-image">
-                <div class="product-name">product name</div>
+                <div class="product-name">product name 1</div>
                 <p class="product-description">Lorem ipsum dolor magnam obcaecati, nisi eos incidunt, explicabo libero quidem error temporibus.</p>
                 <div class="product-price">159.99€</div>
                 <button class="add-to-cart">Add To Cart</button>
             </div>
             <div class="products-card">
                 <img src="assets/images/banner (2).png" alt="Produit 2" class="products-image">
-                <div class="product-name">product name</div>
+                <div class="product-name">product name 2</div>
                 <p class="product-description">Lorem ipsum dolor magnam obcaecati, nisi eos incidunt, explicabo libero quidem error temporibus.</p>
                 <div class="product-price">89.99€</div>
                 <button class="add-to-cart">Add To Cart</button>
@@ -279,9 +280,40 @@
 
 </section>
 
-
-
-
+<!-- Modal Structure -->
+<div id="product-modal" class="product-modal">
+    <div class="modal-content">
+        <span id="modal-close" class="modal-close">&times;</span>
+        
+        <div class="modal-images">
+            <div class="modal-main-image">
+                <img id="modal-current-image" src="" alt="Product Image">
+            </div>
+            
+            <div class="modal-nav">
+                <button id="modal-prev" class="modal-nav-btn prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="modal-next" class="modal-nav-btn next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="modal-thumbnails">
+                <img class="modal-thumbnail" src="" alt="Thumbnail 1">
+                <img class="modal-thumbnail" src="" alt="Thumbnail 2">
+                <img class="modal-thumbnail" src="" alt="Thumbnail 3">
+            </div>
+        </div>
+        
+        <div class="modal-info">
+            <h2 id="modal-name"></h2>
+            <p id="modal-description" class="modal-description"></p>
+            <div id="modal-price" class="modal-price"></div>
+            <button id="modal-add-to-cart" class="add-to-cart">Ajouter au panier</button>
+        </div>
+    </div>
+</div>
 
    <!-- Footer -->
      
@@ -330,6 +362,7 @@
 
 
  <script src="assets/js/men's.js"></script>
+ <script src="assets/js/main.js"></script>
 
 </body>
 </html>

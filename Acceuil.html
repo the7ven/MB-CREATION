@@ -41,6 +41,7 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
                 <li>
                     <a href="index.html">Home</a>
                    
+                    
                 </li>
                 <li>
                     <a href="#" class="has-dropdown">Shop</a>
@@ -48,7 +49,7 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
                         <div class="category">
                             <h3><ul> <li><a href="Men's.html">Men's Collections</a></li></ul></h3>
                             <ul>
-                                <li><a href="Men's.html#icone"  >icône</a></li>
+                                <li><a href="Men's.html#icone">icône</a></li>
                                 <li><a href="Men's.html#icone-2.0">icône 2.0</a></li>
                                 <li><a href="Men's.html#made-of-africa"> ⁠made of Africa </a></li>
                             </ul>
@@ -91,11 +92,7 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
                         <li><a href="Terms&Conditions.html"> FAQ , Terms & Conditions</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#">MB Fondation</a>
-                   
-                </li>
-                <li><a href="Gallerie.html">Shooting</a></li>
+               
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -190,11 +187,28 @@ family=Prociono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Satisfy&di
     <div class="product-modal" id="product-modal">
         <div class="modal-content">
             <span class="modal-close" id="modal-close">&times;</span>
-            <img class="modal-image" id="modal-image" src="" alt="Product Image">
-            <h2 id="modal-name"></h2>
-            <p id="modal-description"></p>
-            <p id="modal-price"></p>
-            <button id="modal-add-to-cart" class="add-to-cart">Ajouter au panier</button>
+            <div class="modal-images">
+                <div class="modal-main-image">
+                    <img id="modal-current-image" src="" alt="Image principale">
+                </div>
+                <div class="modal-thumbnails">
+                    <img class="modal-thumbnail" src="" alt="Miniature 1">
+                    <img class="modal-thumbnail" src="" alt="Miniature 2">
+                    <img class="modal-thumbnail" src="" alt="Miniature 3">
+                </div>
+                <div class="modal-nav">
+                    <button class="modal-nav-btn prev" id="modal-prev">&lt;</button>
+                    <button class="modal-nav-btn next" id="modal-next">&gt;</button>
+                </div>
+            </div>
+            <div class="modal-info">
+                <h2 id="modal-name"></h2>
+                <p class="modal-description" id="modal-description"></p>
+                <p class="modal-price" id="modal-price"></p>
+                <div class="modal-actions">
+                    <button id="modal-add-to-cart" class="add-to-cart">Ajouter au panier</button>
+                </div>
+            </div>
         </div>
     </div>
 
