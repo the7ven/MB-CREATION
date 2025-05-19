@@ -1,3 +1,4 @@
+
 class Slider {
     constructor() {
         this.slides = document.querySelectorAll('.slide');
@@ -215,7 +216,7 @@ function createProductCard(product) {
         <div class="product-info">
             <h3>${product.name}</h3>
             <p>${product.price} €</p>
-            <button class="add-to-cart">Voir le produit</button>
+            <button class="add-to-cart">Details</button>
         </div>
     `;
     
