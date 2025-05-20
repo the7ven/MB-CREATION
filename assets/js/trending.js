@@ -88,7 +88,7 @@ document.querySelector('.mobile-menu-btn').addEventListener('click', function() 
     cartDropdown.appendChild(closeIcon); // Ajoute l'icône à la liste déroulante
     // Ajoutez le titre
     const title = document.createElement('h3');
-    title.textContent = 'Votre Sélection';
+    title.textContent = 'Your selected items';
     cartDropdown.appendChild(title); 
         
         // Charger les articles du panier depuis le localStorage
@@ -98,7 +98,7 @@ document.querySelector('.mobile-menu-btn').addEventListener('click', function() 
         }
     
         if (cartItems.length === 0) {
-            cartDropdown.innerHTML += '<p>Votre panier est vide.</p>';
+            cartDropdown.innerHTML += '<p>Your cart is empty.</p>';
         } else {
             cartItems.forEach((item, index) => {
                 const itemElement = document.createElement('div');
@@ -133,7 +133,7 @@ document.querySelector('.mobile-menu-btn').addEventListener('click', function() 
     
         // Ajout du bouton "Aller au panier"
         const goToCartButton = document.createElement('button');
-        goToCartButton.textContent = 'Aller au panier';
+        goToCartButton.textContent = 'Go to Cart';
         goToCartButton.classList.add('go-to-cart'); // Assurez-vous que cette ligne est présente
         goToCartButton.addEventListener('click', function() {
             // Logique pour rediriger vers la page du panier

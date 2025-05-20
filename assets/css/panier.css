@@ -380,7 +380,9 @@ nav li:hover .dropdown {
 
 
 
-
+.main-content{
+  min-height: 50vh;
+}
 
 
 
