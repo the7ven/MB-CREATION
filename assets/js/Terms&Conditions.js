@@ -20,3 +20,26 @@ document.addEventListener('click', function(e) {
         document.querySelector('nav').classList.remove('active');
     }
 });
+
+
+ // JavaScript to handle the accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const questions = document.querySelectorAll('.faq-question');
+            
+            questions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const item = question.parentElement;
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all items
+                    document.querySelectorAll('.faq-item').forEach(el => {
+                        el.classList.remove('active');
+                    });
+                    
+                    // Open clicked item if it wasn't already active
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });

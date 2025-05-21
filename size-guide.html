@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide des tailles</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/acceuil.css">
+   
+    <style>
+        /* Styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        
+      
+        
+        .size-guide-container {
+           
+            max-width: 100%;
+            margin: 40px auto;
+            padding-top: 100px;
+           
+        }
+        
+        h1 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-button {
+            padding: 12px 24px;
+            background-color: #f1f1f1;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin: 0 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .tab-button:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .tab-button.active {
+            background-color: #4a4a4a;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .info-box {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-box h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #333;
+        }
+        
+        .info-box p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .info-box ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .info-box li {
+            margin-bottom: 8px;
+            color: #666;
+        }
+        
+        /* Tableaux */
+        .size-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .size-table th {
+            background-color: #f2f2f2;
+            font-weight: 600;
+            text-align: center;
+            padding: 15px;
+            border: 1px solid #e1e1e1;
+        }
+        
+        .size-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #e1e1e1;
+            font-size: 14px;
+        }
+        
+        .size-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .size-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        /* Sections spécifiques */
+        .measurement-guide {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .measurement-image {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .measurement-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .measurement-steps {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-button {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+            
+            .measurement-guide {
+                flex-direction: column;
+            }
+            
+            .size-table {
+                font-size: 14px;
+            }
+            
+            .size-table th,
+            .size-table td {
+                padding: 8px 10px;
+            }
+        }
+        
+        /* Éléments supplémentaires */
+        .note {
+            background-color: #fffbeb;
+            border-left: 4px solid #fbbf24;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .conversion-toggle {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .toggle-button {
+            background-color: #4a4a4a;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-button:hover {
+            background-color: #666;
+        }
+        
+        .toggle-button.active {
+            background-color: #333;
+        }
+        
+        .faq-section {
+            margin-top: 40px;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            cursor: pointer;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .faq-answer {
+            padding: 15px;
+            display: none;
+            background-color: #fff;
+            border-radius: 0 0 4px 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question::after {
+            content: '+';
+            float: right;
+            font-weight: bold;
+        }
+        
+        .faq-question.active::after {
+            content: '-';
+        }
+        
+        .faq-question.active + .faq-answer {
+            display: block;
+        }
+    </style>
+</head>
+
+ <div class="top-banner">
+        Free delivery on order over $200
+    </div>
+    <div id="toast" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #333; color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
+        Article ajouté au panier !
+    </div>
+
+    <header class="main-header">
+
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+
+
+        <div class="logo">
+          <a href="index.html"><img src="assets/images/black1.JPEG" alt="logo"></a>
+        </div>
+        
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                   
+                    
+                </li>
+                <li>
+                    <a href="#" class="has-dropdown">Shop</a>
+                    <div class="dropdown mega-menu">
+                        <div class="category">
+                            <h3><ul> <li><a href="Men's.html">Men's Collections</a></li></ul></h3>
+                            <ul>
+                                <li><a href="Men's.html#icone">icône</a></li>
+                                <li><a href="Men's.html#icone-2.0">icône 2.0</a></li>
+                                <li><a href="Men's.html#made-of-africa"> ⁠made of Africa </a></li>
+                            </ul>
+                        </div>
+                        <div class="category">
+                            <h3><ul> <li><a href="women.html">Womens collections</a></li></ul></h3>
+                            <ul>
+                                <li><a href="women.html#icone">icône</a></li>
+                                <li><a href="women.html#icone-2.0">icône 2.0</a></li>
+                                <li><a href="women.html#made-of-africa"> ⁠made of Africa </a></li>
+                               
+                            </ul>
+                        </div>
+                        <div class="category">
+                            <h3><ul> <li><a href="kids.html">Kids Collections</a></li></ul></h3>
+                            <ul>
+                                <li><a href="#">made of Africa</a></li>
+                               
+                                
+                            </ul>
+                        </div>
+                       
+                        <div class="category">
+                            <h3><ul> <li><a href="trending.html">Trending</a></li></ul></h3>
+                            <ul>
+                                <li><a href="#">New Arrivals</a></li>
+                                <li><a href="#">Best Sellers</a></li>
+                                <li><a href="#">Special Offers</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                
+                <li>
+                    <a href="#" class="has-dropdown">Pages</a>
+                    <ul class="dropdown">
+                       
+                        <li><a href="about.html">About-Us</a></li>
+                        <li><a href="Returns-policy.html">Returns Policy</a></li>
+                        <li><a href="size-guide.html">Size Guide</a></li>
+                        <li><a href="Terms&Conditions.html"> FAQ , Terms & Conditions</a></li>
+
+                    </ul>
+                </li>
+               
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+           
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+            <div class="cart-dropdown" style="display: none;">
+                <i class="fas fa-times close-cart" style="cursor: pointer;"></i>
+            </div>
+        </div>
+    </header>
+<body>
+    <div class="size-guide-container">
+        <h1>Guide des tailles</h1>
+        
+        <!-- Système d'onglets -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'femmes')">Womens</button>
+            <button class="tab-button" onclick="openTab(event, 'hommes')">Men's</button>
+            <button class="tab-button" onclick="openTab(event, 'enfants')">Kids</button>
+          
+        </div>
+        
+        <!-- Contenu des onglets -->
+        <div id="femmes" class="tab-content active">
+            <div class="info-box">
+                <h3>How to Choose the Right Size</h3>
+                <p>To find your ideal size, take your measurements and consult our chart below. If you're in doubt between two sizes, we recommend choosing the larger one.</p>
+            </div>
+            
+            <div class="conversion-toggle">
+                <button class="toggle-button active" onclick="toggleUnit('cm-femmes')">Centimètres (cm)</button>
+                <button class="toggle-button" onclick="toggleUnit('inches-femmes')">Pouces (inches)</button>
+            </div>
+            
+            <!-- Tableau en centimètres -->
+            <table id="cm-femmes" class="size-table">
+                <thead>
+                   <tr>
+  <th>FR/EU Size</th>
+  <th>US Size</th>
+  <th>Bust (cm)</th>
+  <th>Waist (cm)</th>
+  <th>Hips (cm)</th>
+ </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>32</td>
+                        <td>0</td>
+                        <td>76-79</td>
+                        <td>58-61</td>
+                        <td>84-87</td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td>2</td>
+                        <td>80-83</td>
+                        <td>62-65</td>
+                        <td>88-91</td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        <td>4</td>
+                        <td>84-87</td>
+                        <td>66-69</td>
+                        <td>92-95</td>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        <td>6</td>
+                        <td>88-91</td>
+                        <td>70-73</td>
+                        <td>96-99</td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>8</td>
+                        <td>92-95</td>
+                        <td>74-77</td>
+                        <td>100-103</td>
+                    </tr>
+                    <tr>
+                        <td>42</td>
+                        <td>10</td>
+                        <td>96-99</td>
+                        <td>78-81</td>
+                        <td>104-107</td>
+                    </tr>
+                    <tr>
+                        <td>44</td>
+                        <td>12</td>
+                        <td>100-103</td>
+                        <td>82-85</td>
+                        <td>108-111</td>
+                    </tr>
+                    <tr>
+                        <td>46</td>
+                        <td>14</td>
+                        <td>104-107</td>
+                        <td>86-90</td>
+                        <td>112-116</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Tableau en pouces (caché par défaut) -->
+            <table id="inches-femmes" class="size-table" style="display: none;">
+                <thead>
+                    <tr>
+  <th>FR/EU Size</th>
+  <th>US Size</th>
+  <th>Bust (cm)</th>
+  <th>Waist (cm)</th>
+  <th>Hips (cm)</th>
+ </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>32</td>
+                        <td>0</td>
+                        <td>30-31</td>
+                        <td>23-24</td>
+                        <td>33-34</td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td>2</td>
+                        <td>31.5-32.5</td>
+                        <td>24.5-25.5</td>
+                        <td>34.5-36</td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        <td>4</td>
+                        <td>33-34</td>
+                        <td>26-27</td>
+                        <td>36.5-37.5</td>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        <td>6</td>
+                        <td>34.5-36</td>
+                        <td>27.5-28.5</td>
+                        <td>38-39</td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>8</td>
+                        <td>36.5-37.5</td>
+                        <td>29-30.5</td>
+                        <td>39.5-40.5</td>
+                    </tr>
+                    <tr>
+                        <td>42</td>
+                        <td>10</td>
+                        <td>38-39</td>
+                        <td>30.5-32</td>
+                        <td>41-42</td>
+                    </tr>
+                    <tr>
+                        <td>44</td>
+                        <td>12</td>
+                        <td>39.5-40.5</td>
+                        <td>32.5-33.5</td>
+                        <td>42.5-43.5</td>
+                    </tr>
+                    <tr>
+                        <td>46</td>
+                        <td>14</td>
+                        <td>41-42</td>
+                        <td>34-35.5</td>
+                        <td>44-45.5</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="note">
+                <p><strong>Note :</strong> These measurements are for guidance only. For a perfect fit, please refer to the specific dimensions provided on each product.</p>
+            </div>
+        </div>
+        
+        <div id="hommes" class="tab-content">
+            <div class="info-box">
+                 <h3>How to Choose the Right Size</h3>
+                <p>To find your ideal size, take your measurements and consult our chart below. If you're in doubt between two sizes, we recommend choosing the larger one.</p>
+            </div>
+            
+            <div class="conversion-toggle">
+                <button class="toggle-button active" onclick="toggleUnit('cm-hommes')">Centimètres (cm)</button>
+                <button class="toggle-button" onclick="toggleUnit('inches-hommes')">Pouces (inches)</button>
+            </div>
+            
+            <!-- Tableau en centimètres -->
+            <table id="cm-hommes" class="size-table">
+                <thead>
+                    <tr>
+  <th>FR/EU Size</th>
+  <th>US Size</th>
+  <th>Bust (cm)</th>
+  <th>Waist (cm)</th>
+  <th>Hips (cm)</th>
+ </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>44</td>
+                        <td>34</td>
+                        <td>85-88</td>
+                        <td>73-76</td>
+                        <td>87-90</td>
+                    </tr>
+                    <tr>
+                        <td>46</td>
+                        <td>36</td>
+                        <td>89-92</td>
+                        <td>77-80</td>
+                        <td>91-94</td>
+                    </tr>
+                    <tr>
+                        <td>48</td>
+                        <td>38</td>
+                        <td>93-96</td>
+                        <td>81-84</td>
+                        <td>95-98</td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td>40</td>
+                        <td>97-100</td>
+                        <td>85-88</td>
+                        <td>99-102</td>
+                    </tr>
+                    <tr>
+                        <td>52</td>
+                        <td>42</td>
+                        <td>101-104</td>
+                        <td>89-92</td>
+                        <td>103-106</td>
+                    </tr>
+                    <tr>
+                        <td>54</td>
+                        <td>44</td>
+                        <td>105-108</td>
+                        <td>93-97</td>
+                        <td>107-110</td>
+                    </tr>
+                    <tr>
+                        <td>56</td>
+                        <td>46</td>
+                        <td>109-112</td>
+                        <td>98-102</td>
+                        <td>111-114</td>
+                    </tr>
+                    <tr>
+                        <td>58</td>
+                        <td>48</td>
+                        <td>113-116</td>
+                        <td>103-107</td>
+                        <td>115-118</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Tableau en pouces (caché par défaut) -->
+            <table id="inches-hommes" class="size-table" style="display: none;">
+                <thead>
+                     <tr>
+  <th>FR/EU Size</th>
+  <th>US Size</th>
+  <th>Bust (cm)</th>
+  <th>Waist (cm)</th>
+  <th>Hips (cm)</th>
+ </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>44</td>
+                        <td>34</td>
+                        <td>33.5-34.5</td>
+                        <td>28.5-30</td>
+                        <td>34.5-35.5</td>
+                    </tr>
+                    <tr>
+                        <td>46</td>
+                        <td>36</td>
+                        <td>35-36</td>
+                        <td>30.5-31.5</td>
+                        <td>36-37</td>
+                    </tr>
+                    <tr>
+                        <td>48</td>
+                        <td>38</td>
+                        <td>36.5-38</td>
+                        <td>32-33</td>
+                        <td>37.5-38.5</td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td>40</td>
+                        <td>38.5-39.5</td>
+                        <td>33.5-34.5</td>
+                        <td>39-40</td>
+                    </tr>
+                    <tr>
+                        <td>52</td>
+                        <td>42</td>
+                        <td>40-41</td>
+                        <td>35-36</td>
+                        <td>40.5-41.5</td>
+                    </tr>
+                    <tr>
+                        <td>54</td>
+                        <td>44</td>
+                        <td>41.5-42.5</td>
+                        <td>36.5-38</td>
+                        <td>42-43.5</td>
+                    </tr>
+                    <tr>
+                        <td>56</td>
+                        <td>46</td>
+                        <td>43-44</td>
+                        <td>38.5-40</td>
+                        <td>44-45</td>
+                    </tr>
+                    <tr>
+                        <td>58</td>
+                        <td>48</td>
+                        <td>44.5-45.5</td>
+                        <td>40.5-42</td>
+                        <td>45.5-46.5</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="note">
+                <p><strong>Note :</strong> These measurements are for guidance only. For a perfect fit, please refer to the specific dimensions provided on each product.</p>
+            </div>
+        </div>
+        
+        <div id="enfants" class="tab-content">
+            <div class="info-box">
+                <h3>How to Choose the Right Size for your child</h3>
+                <p>To find the ideal size for your child, take their measurements and refer to our chart below. We recommend choosing a slightly larger size to allow for growth..</p>
+            </div>
+            
+            <table class="size-table">
+                <thead>
+                   <tr>
+  <th>Age</th>
+  <th>Height (cm)</th>
+  <th>Bust (cm)</th>
+  <th>Waist (cm)</th>
+  <th>Hips (cm)</th>
+ </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2 years</td>
+                        <td>86-92</td>
+                        <td>51-53</td>
+                        <td>50-51</td>
+                        <td>54-56</td>
+                    </tr>
+                    <tr>
+                        <td>3 years</td>
+                        <td>93-98</td>
+                        <td>54-55</td>
+                        <td>52-53</td>
+                        <td>57-59</td>
+                    </tr>
+                    <tr>
+                        <td>4 years</td>
+                        <td>99-104</td>
+                        <td>56-58</td>
+                        <td>54-55</td>
+                        <td>60-62</td>
+                    </tr>
+                    <tr>
+                        <td>5 years</td>
+                        <td>105-110</td>
+                        <td>59-61</td>
+                        <td>56-57</td>
+                        <td>63-65</td>
+                    </tr>
+                    <tr>
+                        <td>6 years</td>
+                        <td>111-116</td>
+                        <td>62-63</td>
+                        <td>58-59</td>
+                        <td>66-68</td>
+                    </tr>
+                    <tr>
+                        <td>7 years</td>
+                        <td>117-122</td>
+                        <td>64-66</td>
+                        <td>60-61</td>
+                        <td>69-71</td>
+                    </tr>
+                    <tr>
+                        <td>8 years</td>
+                        <td>123-128</td>
+                        <td>67-69</td>
+                        <td>62-63</td>
+                        <td>72-74</td>
+                    </tr>
+                    <tr>
+                        <td>9 years</td>
+                        <td>129-134</td>
+                        <td>70-72</td>
+                        <td>64-65</td>
+                        <td>75-77</td>
+                    </tr>
+                    <tr>
+                        <td>10 years</td>
+                        <td>135-140</td>
+                        <td>73-75</td>
+                        <td>66-67</td>
+                        <td>78-80</td>
+                    </tr>
+                    <tr>
+                        <td>11 years</td>
+                        <td>141-146</td>
+                        <td>76-78</td>
+                        <td>68-69</td>
+                        <td>81-83</td>
+                    </tr>
+                    <tr>
+                        <td>12 years</td>
+                        <td>147-152</td>
+                        <td>79-81</td>
+                        <td>70-72</td>
+                        <td>84-86</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="note">
+                <p><strong>Tip: :</strong> For children's clothing, we recommend prioritizing size based on height rather than age, as growth can vary considerably from one child to another. </p>
+            </div>
+        </div>
+        
+       
+        
+        <!-- Section FAQ -->
+       
+
+
+
+       <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>MB-CREATION®</h4>
+                <p>© 2024 MB-CREATION®<br>All Rights Reserved</p>
+            </div>
+            <div class="footer-column">
+                <h3>ABOUT US</h3>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="#">Store location</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>USEFUL LINKS</h3>
+                <ul>
+                    <li><a href="Returns-policy.html">Returns</a></li>
+                    <li><a href="size-guide.html">Size guide</a></li>
+                    <li><a href="Terms&Conditions.html">FAQs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>FOLLOW US</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/share/1BB1YvUfh1/?mibextid=LQQJ4d">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/mbcreationofficiel/profilecard/?igsh=c29zeXR1ZjdobXFo">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>SUBSCRIBE</h3>
+                <p>Get E-mail updates about our latest shop and special offers.</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email here.">
+                    <button type="submit" class="subscribe-btn">SUBSCRIBE</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Fonction pour ouvrir les onglets
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            
+            // Masquer tous les contenus d'onglets
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Désactiver tous les boutons d'onglets
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            // Afficher le contenu de l'onglet sélectionné et activer le bouton
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+        
+        // Fonction pour basculer entre cm et pouces
+        function toggleUnit(unitToShow) {
+            // Déterminer quels tableaux cacher/montrer
+            let category = unitToShow.split('-')[1]; // 'femmes' ou 'hommes'
+            let cmTable = document.getElementById("cm-" + category);
+            let inchesTable = document.getElementById("inches-" + category);
+            
+            // Récupérer les boutons de bascule
+            let buttons = document.querySelectorAll('.conversion-toggle .toggle-button');
+            
+            // Mettre à jour les tableaux
+            if (unitToShow.startsWith("cm")) {
+                cmTable.style.display = "table";
+                inchesTable.style.display = "none";
+            } else {
+                cmTable.style.display = "none";
+                inchesTable.style.display = "table";
+            }
+            
+            // Mettre à jour les styles des boutons
+            buttons.forEach(button => {
+                button.classList.remove("active");
+                if ((button.innerText.includes("Centimètres") && unitToShow.startsWith("cm")) || 
+                    (button.innerText.includes("Pouces") && unitToShow.startsWith("inches"))) {
+                    button.classList.add("active");
+                }
+            });
+        }
+        
+        // Fonction pour ouvrir/fermer les questions FAQ
+        function toggleFAQ(element) {
+            element.classList.toggle("active");
+            let answer = element.nextElementSibling;
+            
+            // Fermer les autres FAQ qui sont ouvertes
+            let allQuestions = document.querySelectorAll('.faq-question');
+            allQuestions.forEach(question => {
+                if (question !== element && question.classList.contains("active")) {
+                    question.classList.remove("active");
+                    question.nextElementSibling.style.display = "none";
+                }
+            });
+            
+            // Ouvrir/fermer la FAQ sélectionnée
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+            } else {
+                answer.style.display = "block";
+            }
+        }
+        
+        // Initialiser les événements de la page au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ouvrir le premier onglet par défaut
+            document.querySelector('.tab-button').click();
+            
+            // Initialiser les unités par défaut
+            document.getElementById('cm-femmes').style.display = 'table';
+            document.getElementById('inches-femmes').style.display = 'none';
+            document.getElementById('cm-hommes').style.display = 'table';
+            document.getElementById('inches-hommes').style.display = 'none';
+        });
+
+
+        // Gestion menus sur mobile
+
+document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+    document.querySelector('nav').classList.toggle('active');
+});
+
+// Gestion des sous-menus sur mobile
+document.querySelectorAll('.has-dropdown').forEach(item => {
+    item.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            this.parentElement.classList.toggle('active');
+        }
+    });
+});
+
+// Fermeture du menu au clic en dehors
+document.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768 && !e.target.closest('nav') && !e.target.closest('.mobile-menu-btn')) {
+        document.querySelector('nav').classList.remove('active');
+    }
+});
+
+    </script>
+
+    </body>
+</html>
